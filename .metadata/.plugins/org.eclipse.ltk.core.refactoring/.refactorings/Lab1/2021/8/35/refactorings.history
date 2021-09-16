@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Lab1/Output.txt&apos; to &apos;IOscreen.txt&apos;" description="Rename resource &apos;Output.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Output.txt" name="IOscreen.txt" stamp="1630176850217" updateReferences="true"/>
+</session>

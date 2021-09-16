@@ -1,0 +1,130 @@
+/*****************************************************************************************
+ * AUTHOR         : BRYCE BERWALD
+ * Lab #3         : Functions - GCD
+ * CLASS          : CS1B
+ * SECTION        : MW 7:30-10:00PM
+ * DUE DATE       : _____ @ 11:59PM
+ *****************************************************************************************/
+
+#include "Functions.h";
+
+/****************************************************************************************
+* This function can print to either the console or the output file using ostream type
+* with the specified variable being passed by reference.
+*****************************************************************************************/
+void printHeader(ostream &output) {
+
+	// Declared variables for the program header to be used by this function.
+	const char PROGRAMMER[20] = "Bryce Berwald";
+	const char CLASS[5] = "CS1B";
+	const char SECTION[25] = "MW: 7:30PM-10:00PM";
+	const int LAB_NUM = 3;
+	const char ASSIGNMENT_NAME[20] = "Functions - GCD";
+
+	// Output the program header to output specified.
+	output << left;
+	output << "*******************************************************";
+	output << "\n* PROGRAMMED BY : " << PROGRAMMER;
+	output << "\n* " << setw(14) << "CLASS" << ": " << CLASS;
+	output << "\n* " << setw(14) << "SECTION" << ": " << SECTION;
+	output << "\n* LAB #" << setw(9) << LAB_NUM << ": " << ASSIGNMENT_NAME;
+	output << "\n*******************************************************" << endl;
+	output << right << endl;
+}
+
+/****************************************************************************************
+* This function will return the class header as a string using ostringstream to be used
+* for output for the console or output file.
+*****************************************************************************************/
+string printHeaderTwo() {
+
+	ostringstream output;
+
+	// Declared variables for the program header to be used by this function.
+	const char PROGRAMMER[20] = "Bryce Berwald";
+	const char CLASS[5] = "CS1B";
+	const char SECTION[25] = "MW: 7:30PM-10:00PM";
+	const int LAB_NUM = 3;
+	const char ASSIGNMENT_NAME[20] = "Functions - GCD";
+
+	// Output the program header to output specified.
+	output << left;
+	output << "*******************************************************";
+	output << "\n* PROGRAMMED BY : " << PROGRAMMER;
+	output << "\n* " << setw(14) << "CLASS" << ": " << CLASS;
+	output << "\n* " << setw(14) << "SECTION" << ": " << SECTION;
+	output << "\n* LAB #" << setw(9) << LAB_NUM << ": " << ASSIGNMENT_NAME;
+	output << "\n*******************************************************" << endl;
+	output << right << endl;
+
+	return output.str();
+}
+
+/****************************************************************************************
+*
+*****************************************************************************************/
+void getIntegersFromUser(int &firstIntegerFromUser, int &secondIntegerFromUser) {
+	cout << left << setw(28);
+	cout << "\nEnter the first integer: ";
+	cin >> firstIntegerFromUser;
+
+	cout << setw(28);
+	cout << "\nEnter the second integer: ";
+	cin >> secondIntegerFromUser;
+}
+
+/****************************************************************************************
+*
+*****************************************************************************************/
+int calculateGCD(int firstInteger, int secondInteger, string outputFileName) {
+
+	int largestValue = firstInteger;
+	int smallestValue = secondInteger;
+	int remainder = largestValue % smallestValue;
+
+	int greatestCommonDivisor;
+
+	if (secondInteger == 0) {
+		greatestCommonDivisor = firstInteger;
+	} else {
+		while (remainder != 0) {
+			largestValue = smallestValue;
+			smallestValue = remainder;
+			remainder = largestValue % smallestValue;
+		}
+		greatestCommonDivisor = smallestValue;
+	}
+
+	return greatestCommonDivisor;
+
+//	ofstream oFile;
+//	oFile.open(outputFileName, ios::app);
+//
+//	oFile << "\nThe GCD for " << firstInteger << " & " << secondInteger << " = " << smallestValue;
+//
+//	oFile.close();
+
+
+
+}
+
+int calulateTheGCD(int firstInteger, int secondInteger) {
+
+	int greatestCommonDivisor;
+
+    if (secondInteger == 0) {
+    	greatestCommonDivisor = secondInteger;
+    } else {
+    	for (int i = 1; i <= firstInteger && i <= secondInteger; i++) {
+    		if (firstInteger % i == 0 && secondInteger % i == 0) {
+                greatestCommonDivisor = i;
+            }
+        }
+
+     }
+
+    return greatestCommonDivisor;
+
+
+}
+

@@ -1,0 +1,77 @@
+/*****************************************************************************************
+ * AUTHOR         : BRYCE BERWALD
+ * Lab #3         : Functions - GCD
+ * CLASS          : CS1B
+ * SECTION        : MW 7:30-10:00PM
+ * DUE DATE       : _____ @ 11:59PM
+ *****************************************************************************************/
+
+#include "Functions.h";
+
+/******************************************************************************************
+ *
+ * Lab #3: Functions - GCD
+ *
+ *
+ * ________________________________________________________________________________________
+ *
+ * Description goes here...
+ *
+ *
+ * ________________________________________________________________________________________
+ *
+ *
+ * INPUT:
+ *    inputVariableNumber1
+ *    inputVariableNumber2
+ *
+ *
+ *
+ * OUTPUT:
+ *    outputVariableNumber1
+ *    outputVariableNumber2
+ *
+ *
+ ******************************************************************************************/
+
+int main() {
+
+	string outputFileName = "OFile.txt";
+	string returnedClassHeader;
+
+	int firstInteger;
+	int secondInteger;
+
+	// Print the header to the console.
+	printHeader(cout);
+
+	// Save the returned string to a variable.
+	returnedClassHeader = printHeaderTwo();
+
+	// Print the returned string to the console.
+	cout << returnedClassHeader;
+
+	// Print the header to the output file.
+	ofstream oFile;
+	oFile.open(outputFileName, ios::app);
+	//Function prints header to the output file.
+	printHeader(oFile);
+	// Prints the returned string to the output file.
+	oFile << returnedClassHeader;
+	oFile.close();
+
+	for (int i = 0; i < 4; i++) {
+
+		cout << left << setw(28);
+		cout << "\nEnter the first integer: ";
+		cin >> firstInteger;
+
+		cout << setw(28);
+		cout << "\nEnter the second integer: ";
+		cin >> secondInteger;
+
+		calculateGCD(firstInteger, secondInteger, outputFileName);
+	}
+
+	return 0;
+}

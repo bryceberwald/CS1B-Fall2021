@@ -1,0 +1,76 @@
+*******************************************************
+* PROGRAMMED BY : Bryce Berwald
+* CLASS         : CS1B
+* SECTION       : MW: 7:30PM-10:00PM
+* ASSIGNMENT #1 : Functions & Arrays
+*******************************************************
+
+ID #      Name                          BALANCE DUE                             
+-----     --------------------          -----------                   
+1001      Jean Rousseau                 $     15.50
+
+1002      Steve Woolston                $   1423.50
+
+1005      Michele Rousseau              $     52.75
+
+1007      Pete McBride                  $    500.32
+
+1010      Florence Rousseau             $   1323.33
+
+1009      Lisa Covi                     $    332.35
+
+1003      Don McBride                   $     12.32
+
+1008      Chris Carroll                 $     32.35
+
+1004      Yolanda Agredano              $    356.00
+
+1006      Sally Sleeper                 $     32.36
+
+
+
+
+
+The largest balance is: 
+ID #      Name                          BALANCE DUE                             
+-----     --------------------          -----------                   
+1002      Steve Woolston                $   1423.50
+
+
+The smallest balance is: 
+ID #      Name                          BALANCE DUE                             
+-----     --------------------          -----------                   
+1003      Don McBride                   $     12.32
+
+
+The sum of all persons balances: 
+$    4080.78
+
+
+The average of all persons balances: 
+$     408.08
+
+
+Search Name: 
+ID #      Name                          BALANCE DUE                             
+-----     --------------------          -----------                   
+1002      Steve Woolston                $   1423.50
+
+
+Search Name: 
+ID #      Name                          BALANCE DUE                             
+-----     --------------------          -----------                   
+1008      Chris Carroll                 $     32.35
+
+
+Search Name: 
+ID #      Name                          BALANCE DUE                             
+-----     --------------------          -----------                   
+1007      Pete McBride                  $    500.32
+
+
+Search Name: 
+ID #      Name                          BALANCE DUE                             
+-----     --------------------          -----------                   
+1001      Jean Rousseau                 $     15.50
+

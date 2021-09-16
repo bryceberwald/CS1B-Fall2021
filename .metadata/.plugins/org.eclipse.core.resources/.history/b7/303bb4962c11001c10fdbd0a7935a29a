@@ -1,0 +1,162 @@
+/*****************************************************************************************
+ * AUTHOR         : BRYCE BERWALD
+ * Assignment #1  : Functions & Arrays
+ * CLASS          : CS1B
+ * SECTION        : MW 7:30-10:00PM
+ * DUE DATE       : 09/17/2021 @ 11:59PM
+ *****************************************************************************************/
+
+#include "Functions.h"
+
+/******************************************************************************************
+ *
+ * Assignment #1: CS1B - Functions & Arrays
+ *
+ *
+ * ________________________________________________________________________________________
+ *
+ * Description will go here.
+ *
+ * ________________________________________________________________________________________
+ *
+ * Variables used for input and output go here.
+ *
+ *
+ ******************************************************************************************/
+
+int main() {
+
+	string inputFileName;                  // INPUT - User determines variable value for input file.
+
+	string outputFileName;                 // INPUT - User determines variable value for output file.
+
+	const int MAX_VALUES = 10;             // CONST - used to set array lengths and know size.
+	int menuOptionChosen = -1;
+	int calculatedIndex;
+	float calculatedResult;
+
+	int foundPersonIndex;
+	string nameSearchedFor;
+
+	string personsFullName[MAX_VALUES]; //Array for all persons names from the input file.
+	int personsID[MAX_VALUES];          //Array for all persons ID #s from the input file.
+	float personsBalance[MAX_VALUES];   //Array for all persons balances from the input file.
+
+	//Function prints header to the console.
+	printHeader(cout);
+
+	//Function reads file names from the user.
+	readFileNames(inputFileName, outputFileName);
+
+	ofstream oFile;
+	oFile.open(outputFileName, ios::app);
+	//Function prints header to the output file.
+	printHeader(oFile);
+	oFile.close();
+
+	//Function gathers data from the input file.
+	getDataFromInputFile(personsFullName, personsID, personsBalance, MAX_VALUES, inputFileName, outputFileName);
+
+	while (menuOptionChosen != 0) {
+		//Print menu options to the console for the user.
+		cout << "\nMENU OPTIONS" << endl << endl;
+		cout << "1 - Find the larger balance" << endl;
+		cout << "2 - Find the smaller balance" << endl;
+		cout << "3 - Obtain the sum of all balances" << endl;
+		cout << "4 - Obtain the average of all balances" << endl;
+		cout << "5 - Find person" << endl;
+		cout << "0 - Exit" << endl;
+		cout << "Enter an option (0 to exit): ";
+
+		cin >> menuOptionChosen;
+		cin.ignore(10000, '\n');
+
+		ofstream oFile;
+		oFile.open(outputFileName, ios::app);
+
+		switch(menuOptionChosen) {
+			case 0:
+				//Exits the program...
+				cout << "\nTerminating now!!!" << endl;
+				oFile.close();
+				break;
+			case 1:
+				//Find the larger balance...
+				cout << "\nFinding the larger balance..." << endl;
+
+				if(oFile.is_open()) {
+					calculatedIndex = findSmallerOrLargerBalance(personsBalance, MAX_VALUES, menuOptionChosen);
+					oFile << left;
+					oFile << "\nThe largest balance is: " << endl;
+					printRecordHeadingToFile(outputFileName);
+				    oFile << left << setw(10)
+				    		<< personsID[calculatedIndex] << setw(29) << personsFullName[calculatedIndex]
+							<< " " << setw(4) << "$" << right << setprecision(2)
+							<< fixed << personsBalance[calculatedIndex] << '\n' << '\n';
+				}
+				break;
+			case 2:
+				//Find the smaller balance...
+				cout << "\nFinding the smaller balance..." << endl;
+
+				if(oFile.is_open()) {
+					calculatedIndex = findSmallerOrLargerBalance(personsBalance, MAX_VALUES, menuOptionChosen);
+					oFile << left;
+					oFile << "\nThe smallest balance is: " << endl;
+					printRecordHeadingToFile(outputFileName);
+					oFile << left << setw(10)
+							<< personsID[calculatedIndex] << setw(29) << personsFullName[calculatedIndex]
+							<< " " << setw(6) << "$" << right << setprecision(2)
+							<< fixed << personsBalance[calculatedIndex] << '\n' << '\n';
+				}
+				break;
+			case 3:
+				//Obtain the sum of all balances...
+				cout << "\nObtaining the sum of all balances..." << endl;
+
+				if(oFile.is_open()) {
+					calculatedResult = findSumOrAverageBalance(personsBalance, MAX_VALUES, menuOptionChosen);
+					oFile << left;
+					oFile << "\nThe sum of all persons balances: " << endl;
+					oFile << setw(5) << "$" << right << calculatedResult << "\n\n";
+				}
+
+				break;
+			case 4:
+				//Obtain the average of all balances...
+				cout << "\nObtaining the average of all balances..." << endl;
+
+				if(oFile.is_open()) {
+					calculatedResult = findSumOrAverageBalance(personsBalance, MAX_VALUES, menuOptionChosen);
+					oFile << left;
+					oFile << "\nThe average of all persons balances: " << endl;
+					oFile << setw(6) << "$" << right << setprecision(2)
+						  << fixed << calculatedResult << "\n\n";
+				}
+				break;
+			case 5:
+				//Find person...
+				foundPersonIndex = searchForPerson(personsFullName, MAX_VALUES);
+
+				if (foundPersonIndex < MAX_VALUES) {
+					cout << "Person Found." << endl;
+					if(oFile.is_open()) {
+						oFile << left;
+						oFile << "\nSearch Name: " << endl;
+						printRecordHeadingToFile(outputFileName);
+					    oFile << left << setw(10) << personsID[foundPersonIndex]
+							  << setw(30) << personsFullName[foundPersonIndex] << "$" << setw(10)
+							  << right << setprecision(2) << fixed << personsBalance[foundPersonIndex] << '\n' << '\n';
+					}
+				} else {
+					cout << "Person was not found." << endl;
+				}
+				break;
+			default:
+				//Error checking for menu options not specified.
+				cout << "\nPlease choose a valid menu option." << endl;
+				break;
+		}
+	}
+	return 0;
+}

@@ -1,0 +1,93 @@
+*******************************************************
+* PROGRAMMED BY : Bryce Berwald
+* CLASS         : CS1B
+* SECTION       : MW: 7:30PM-10:00PM
+* Lab #1        : Theme Park Day Planner
+*******************************************************
+
+Welcome to the Theme Park Day Planner! Please have the names of the kids who will be attending...
+
+Kid #1
+What's your kid's name? John Deer
+How old is the kid? 7
+Vegetarian? (Y/N) Y
+Does he/she like cheese? Y
+
+John will be going to the Tea Cups/Lazer Tag. Pack a Cheese Pizza for John.
+
+Kid #2
+What's your kid's name? Ronald Mendez
+How old is the kid? 5
+Vegetarian? (Y/N) Y
+Does he/she like cheese? N
+
+Ronald will be going to the Tea Cups/Lazer Tag. Pack a Happy Garden for Ronald.
+
+Kid #3
+What's your kid's name? Jazmine Ray
+How old is the kid? 9
+Vegetarian? (Y/N) Y
+Does he/she like cheese? N
+
+Jazmine will be going to the Tea Cups/Lazer Tag. Pack a Happy Garden for Jazmine.
+
+Kid #4
+What's your kid's name? Reggie Miller
+How old is the kid? 17
+Vegetarian? (Y/N) N
+Does he/she like cheese? Y
+
+Reggie will be going to the Roller Coaster/Zip Line. Pack a Cheese Burger for Reggie.
+
+Kid #5
+What's your kid's name? Jake Hugo
+How old is the kid? 8
+Vegetarian? (Y/N) Y
+Does he/she like cheese? Y
+
+Jake will be going to the Tea Cups/Lazer Tag. Pack a Cheese Pizza for Jake.
+
+Kid #6
+What's your kid's name? Franklin Pondsman
+How old is the kid? 6
+Vegetarian? (Y/N) N
+Does he/she like cheese? Y
+
+Franklin will be going to the Tea Cups/Lazer Tag. Pack a Cheese Burger for Franklin.
+
+Kid #7
+What's your kid's name? Teddy Bear
+How old is the kid? 4
+Vegetarian? (Y/N) N
+Does he/she like cheese? Y
+
+Teddy will be going to the Ferris Wheel/Sheep Petting Zoo. Pack a Cheese Burger for Teddy.
+
+Kid #8
+What's your kid's name? Paulina Poles
+How old is the kid? 10
+Vegetarian? (Y/N) Y
+Does he/she like cheese? N
+
+Paulina will be going to the Tea Cups/Lazer Tag. Pack a Happy Garden for Paulina.
+
+Kid #9
+What's your kid's name? Tom Brave
+How old is the kid? 8
+Vegetarian? (Y/N) Y
+Does he/she like cheese? N
+
+Tom will be going to the Tea Cups/Lazer Tag. Pack a Happy Garden for Tom.
+
+Kid #10
+What's your kid's name? Jake Tuner
+How old is the kid? 4
+Vegetarian? (Y/N) N
+Does he/she like cheese? Y
+
+Jake will be going to the Ferris Wheel/Sheep Petting Zoo. Pack a Cheese Burger for Jake.
+
+
+
+The total cost for the day is:          $151.00
+The average cost per kid is:            $ 15.10

@@ -1,0 +1,37 @@
+/*****************************************************************************************
+ * AUTHOR         : BRYCE BERWALD
+ * Lab #3         : Functions - GCD
+ * CLASS          : CS1B
+ * SECTION        : MW 7:30-10:00PM
+ * DUE DATE       : _____ @ 11:59PM
+ *****************************************************************************************/
+
+#ifndef FUNCTIONS_H_
+#define FUNCTIONS_H_
+
+// Pre-processor directives
+#include <iostream> // For input & output
+#include <iomanip>  // For manipulating the input & output
+#include <string>   // For strings
+#include <ostream>
+#include <fstream>
+#include <sstream>
+using namespace std;
+
+
+// Prototypes for functions used in the program.
+
+// Function prototype for printing header to console or file using ostream to determine where to output.
+void printHeader(ostream &output);
+
+// Function prototype for printing header to console or file using ostringstream to return a string.
+string printHeaderTwo(ostringstream &output);
+
+// Function prototype for calculating the GCD from the users input.
+void calculateGCD(int firstInteger, int secondInteger, string outputFileName);
+
+
+
+
+
+#endif /* FUNCTIONS_H_ */

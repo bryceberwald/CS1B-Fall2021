@@ -1,0 +1,67 @@
+/*****************************************************************************************
+ * AUTHOR         : BRYCE BERWALD
+ * Lab #3         : Functions - GCD
+ * CLASS          : CS1B
+ * SECTION        : MW 7:30-10:00PM
+ * DUE DATE       : _____ @ 11:59PM
+ *****************************************************************************************/
+
+#include "Functions.h";
+
+/******************************************************************************************
+ *
+ * Lab #3: Functions - GCD
+ *
+ *
+ * ________________________________________________________________________________________
+ *
+ * Description goes here...
+ *
+ *
+ * ________________________________________________________________________________________
+ *
+ *
+ * INPUT:
+ *
+ *
+ *
+ * OUTPUT:
+ *
+ *
+ *
+ ******************************************************************************************/
+
+int main() {
+
+	string outputFileName = "OFile.txt";
+
+	int firstIntegerFromUser;
+	int secondIntegerFromUser;
+
+	// Print the header to the console.
+	printHeader(cout);
+
+	// Print the string being returned by this function to the console.
+	cout << printHeaderTwo();
+
+	// Print the header to the output file.
+	ofstream oFile;
+	oFile.open(outputFileName, ios::app);
+	// Function prints header to the output file.
+	printHeader(oFile);
+	// Prints the returned string to the output file.
+	oFile << printHeaderTwo();
+	oFile.close();
+
+	for (int i = 0; i < 4; i++) {
+
+		getIntegersFromUser(firstIntegerFromUser, secondIntegerFromUser);
+
+		//calculateGCD(firstIntegerFromUser, secondIntegerFromUser, outputFileName);
+		cout << calulateGCD(firstIntegerFromUser, secondIntegerFromUser);
+	}
+
+	cout << "\n\nThank you for using my GCD calculator!";
+
+	return 0;
+}
