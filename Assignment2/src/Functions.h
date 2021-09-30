@@ -12,6 +12,7 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <stdlib.h> // For srand & rand
 using namespace std;
 
 const int ROW_SIZE = 3;

@@ -65,6 +65,8 @@ int main() {
 	char token = 'X';
 	char checkWin = 'N';
 
+	//Generate Random Seed.
+	srand(time(NULL));
 
 	while (menuOptionChosen != 0) {
 		//Print menu options to the console for the user.
@@ -127,7 +129,65 @@ int main() {
 			while (inSession) {
 				GetAndCheckInp(boardAr, token, playerX, playerO);
 				DisplayBoard(boardAr);
+
+				// Check to see if there's a winner.
+				checkWin = CheckWin(boardAr);
+				if(checkWin == 'X') {
+					inSession = false;
+				} else if (checkWin == 'O') {
+					inSession = false;
+				} else if (checkWin == 'T') {
+					inSession = false;
+				} else if (checkWin == 'N') {
+					inSession = true;
+
+					// Algorithm for an attack against the user.
+					token = SwitchToken(token);   // Switches token for the computer
+					bool isRandomPositionAvailable = false;
+					while (!isRandomPositionAvailable) {
+						int randRow = rand() % 3;
+						int randColumn = rand() % 3;
+
+						if (boardAr[randRow][randColumn] == ' ') {
+							boardAr[randRow][randColumn] = token;
+							isRandomPositionAvailable = true;
+						}
+					}
+					token = SwitchToken(token); // Switches token back for the user.
+					DisplayBoard(boardAr);      // Redisplay board after computer's move.
+
+				}
+
+
+				// Check to see if there's a winner.
+				checkWin = CheckWin(boardAr);
+				if(checkWin == 'X') {
+					inSession = false;
+				} else if (checkWin == 'O') {
+					inSession = false;
+				} else if (checkWin == 'T') {
+					inSession = false;
+				} else if (checkWin == 'N') {
+					inSession = true;
+				}
+
 			}
+
+			// Output who the winner is.
+			if (checkWin == token) {
+				cout << "\nCongratulations! You have beat the computer!\n";
+			} else if (checkWin == 'T') {
+				cout << "\nThere was a tie. Better luck next time!\n";
+			} else if (checkWin == 'N') {
+				cout << "";
+			} else {
+				cout << "\nThe computer won. Better luck next time!\n";
+			}
+
+
+			// Reset variables
+			checkWin = 'N';
+			token = 'X';
 
 			break;
 		default:
