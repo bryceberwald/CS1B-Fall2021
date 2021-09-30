@@ -40,6 +40,8 @@
 
 int main() {
 
+	system("clear");
+
 	string inputFileName;                  // INPUT - User determines variable value for input file.
 	string outputFileName;                 // INPUT - User determines variable value for output file.
 

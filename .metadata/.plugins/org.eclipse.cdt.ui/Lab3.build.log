@@ -1,6 +1,6 @@
-15:31:59 **** Incremental Build of configuration Debug for project Lab3 ****
+23:15:15 **** Incremental Build of configuration Debug for project Lab3 ****
 make all 
 make: Nothing to be done for `all'.
 
-15:31:59 Build Finished. 0 errors, 0 warnings. (took 247ms)
+23:15:15 Build Finished. 0 errors, 0 warnings. (took 396ms)
 

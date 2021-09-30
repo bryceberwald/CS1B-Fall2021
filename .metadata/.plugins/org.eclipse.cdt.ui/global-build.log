@@ -1,35 +1,27 @@
-23:35:05 **** Incremental Build of configuration Debug for project Lab5 ****
+00:20:46 **** Incremental Build of configuration Debug for project Assignment2 ****
 make all 
-Building file: ../src/Lab5.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Lab5.d" -MT"src/Lab5.o" -o "src/Lab5.o" "../src/Lab5.cpp"
-../src/Lab5.cpp:41:25: error: expected expression
-        intArray[ARRAY_SIZE] = {4, 1, 7, 12, 8, 13, 9, 21};
-                               ^
-1 error generated.
-make: *** [src/Lab5.o] Error 1
-"make all" terminated with exit code 2. Build might be incomplete.
-23:35:07 **** Incremental Build of configuration Debug for project Lab5 ****
+make: Nothing to be done for `all'.
+00:20:50 **** Incremental Build of configuration Debug for project Assignment2 ****
 make all 
-Building file: ../src/Lab5.cpp
+Building file: ../src/Assignment2.cpp
 Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Lab5.d" -MT"src/Lab5.o" -o "src/Lab5.o" "../src/Lab5.cpp"
-Finished building: ../src/Lab5.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Assignment2.d" -MT"src/Assignment2.o" -o "src/Assignment2.o" "../src/Assignment2.cpp"
+Finished building: ../src/Assignment2.cpp
  
-Building target: Lab5
+Building file: ../src/Functions.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Functions.d" -MT"src/Functions.o" -o "src/Functions.o" "../src/Functions.cpp"
+../src/Functions.cpp:107:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+../src/Functions.cpp:117:1: warning: non-void function does not return a value [-Wreturn-type]
+}
+^
+2 warnings generated.
+Finished building: ../src/Functions.cpp
+ 
+Building target: Assignment2
 Invoking: MacOS X C++ Linker
-g++  -o "Lab5"  ./src/Lab5.o ./src/output.o ./src/search.o ./src/sort.o   
-Finished building target: Lab5
- 
-23:49:08 **** Incremental Build of configuration Debug for project Lab5 ****
-make all 
-Building file: ../src/Lab5.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Lab5.d" -MT"src/Lab5.o" -o "src/Lab5.o" "../src/Lab5.cpp"
-Finished building: ../src/Lab5.cpp
- 
-Building target: Lab5
-Invoking: MacOS X C++ Linker
-g++  -o "Lab5"  ./src/Lab5.o ./src/output.o ./src/search.o ./src/sort.o   
-Finished building target: Lab5
+g++  -o "Assignment2"  ./src/Assignment2.o ./src/Functions.o   
+Finished building target: Assignment2
  
