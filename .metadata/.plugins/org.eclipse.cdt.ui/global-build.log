@@ -1,27 +1,3 @@
-00:20:46 **** Incremental Build of configuration Debug for project Assignment2 ****
+22:49:31 **** Build of configuration Debug for project Lab4 ****
 make all 
 make: Nothing to be done for `all'.
-00:20:50 **** Incremental Build of configuration Debug for project Assignment2 ****
-make all 
-Building file: ../src/Assignment2.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Assignment2.d" -MT"src/Assignment2.o" -o "src/Assignment2.o" "../src/Assignment2.cpp"
-Finished building: ../src/Assignment2.cpp
- 
-Building file: ../src/Functions.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Functions.d" -MT"src/Functions.o" -o "src/Functions.o" "../src/Functions.cpp"
-../src/Functions.cpp:107:1: warning: non-void function does not return a value [-Wreturn-type]
-}
-^
-../src/Functions.cpp:117:1: warning: non-void function does not return a value [-Wreturn-type]
-}
-^
-2 warnings generated.
-Finished building: ../src/Functions.cpp
- 
-Building target: Assignment2
-Invoking: MacOS X C++ Linker
-g++  -o "Assignment2"  ./src/Assignment2.o ./src/Functions.o   
-Finished building target: Assignment2
- 

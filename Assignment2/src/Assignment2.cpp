@@ -52,8 +52,6 @@ int main() {
 	cout << "\n*******************************************************" << endl;
 	cout << right << endl;
 
-	const int ROW_SIZE = 3;
-	const int COL_SIZE = 3;
 
 	char boardAr[ROW_SIZE][COL_SIZE];
 
@@ -62,8 +60,8 @@ int main() {
 
 	int menuOptionChosen = 7;
 	bool inSession = false;
-	int rowSelected;
-	int colSelected;
+
+	char token = 'X';
 
 
 	while (menuOptionChosen != 0) {
@@ -99,13 +97,9 @@ int main() {
 			DisplayBoard(boardAr);
 			inSession = true;
 			while (inSession) {
-				cout << "\n" << playerX << "'s turn! What's your play? ";
-				cin >> rowSelected >> colSelected;
-				cout << "[" << rowSelected << ", " << colSelected << "]" << endl;
-
-				cout << "\n" << playerO << "'s turn! What's your play? ";
-				cin >> rowSelected >> colSelected;
-				cout << "[" << rowSelected << ", " << colSelected << "]" << endl;
+				GetAndCheckInp(boardAr, token, playerX, playerO);
+				DisplayBoard(boardAr);
+				token = SwitchToken(token);
 			}
 			break;
 		default:
