@@ -34,7 +34,7 @@ void OutputInstruct();
  *
  * RETURNS: Board initialized with all spaces
  ******************************************************************************/
-void InitBoard(char boardAr[][3], const int ROW_SIZE, const int COL_SIZE);
+void InitBoard(char boardAr[][3]);
 
 /*******************************************************************************
 * DisplayBoard
@@ -74,7 +74,7 @@ void GetPlayers(string& playerX,  //OUT -player X’s name
 		        string& playerO); //OUT -player O’x name
 
 // As this was written in class -you need to document this
-void GetAndCheckInp(char boardAr[ROW_SIZE][COL_SIZE], char token, string playerX, string playerO);
+void GetAndCheckInp(char boardAr[][3], char token, string playerX, string playerO);
 
 /******************************************************************************
  * SwitchToken

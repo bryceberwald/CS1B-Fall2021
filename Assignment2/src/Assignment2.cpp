@@ -57,11 +57,13 @@ int main() {
 
 	string playerX = "Player X";
 	string playerO = "Player O";
+	char playerChosen = 'X';
 
 	int menuOptionChosen = 7;
 	bool inSession = false;
 
 	char token = 'X';
+	char checkWin = 'N';
 
 
 	while (menuOptionChosen != 0) {
@@ -88,19 +90,45 @@ int main() {
 			break;
 		case 2:
 			//Code for Two Player Mode
-			InitBoard(boardAr, ROW_SIZE, COL_SIZE);
-			DisplayBoard(boardAr);
-			break;
-		case 3:
-			//Code for One Player Mode
-			InitBoard(boardAr, ROW_SIZE, COL_SIZE);
+			InitBoard(boardAr);
 			DisplayBoard(boardAr);
 			inSession = true;
 			while (inSession) {
 				GetAndCheckInp(boardAr, token, playerX, playerO);
 				DisplayBoard(boardAr);
 				token = SwitchToken(token);
+				checkWin = CheckWin(boardAr);
+				if(checkWin == 'X') {
+					inSession = false;
+				} else if (checkWin == 'O') {
+					inSession = false;
+				} else if (checkWin == 'T') {
+					inSession = false;
+				} else if (checkWin == 'N') {
+					inSession = true;
+				}
 			}
+			OutputWinner(checkWin, playerX, playerO);
+			checkWin = 'N';
+			token = 'X';
+			break;
+		case 3:
+			//Code for One Player Mode
+			cout << "\nTo play as " << playerX << " type 'X' or to play as " << playerO << " type 'O': ";
+			cin >> playerChosen;
+			InitBoard(boardAr);
+			DisplayBoard(boardAr);
+			if (playerChosen == 'X') {
+				token = 'X';
+			} else if (playerChosen == 'O') {
+				token = 'O';
+			}
+			inSession = true;
+			while (inSession) {
+				GetAndCheckInp(boardAr, token, playerX, playerO);
+				DisplayBoard(boardAr);
+			}
+
 			break;
 		default:
 			cout << "\nERROR WHILE SELECTING MENU OPTIONS.";
