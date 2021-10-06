@@ -9,14 +9,25 @@
 #ifndef FUNCTIONS_H_
 #define FUNCTIONS_H_
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-#include <stdlib.h> // For srand & rand
+//Pre-processor directives
+#include <iostream> // For input & output
+#include <iomanip>  // For manipulating the input & output
+#include <string>   // For strings to be used dynamically
+#include <stdlib.h> // For random numbers to be generated
+#include <cctype>   // For toUpper() function to be used
 using namespace std;
 
-const int ROW_SIZE = 3;
-const int COL_SIZE = 3;
+const int ROW_SIZE = 3; // CONST - Used to set the row size of the game board array.
+const int COL_SIZE = 3; // CONST - Used to set the column size of the game board array.
+
+/*******************************************************************************
+ * PrintClassHeader
+ *     This function outputs the class details in a header format.
+ *
+ * RETURNS: nothing
+ * -> Displays the class header.
+ ******************************************************************************/
+void PrintClassHeader();
 
 /******************************************************************************
  * OutputInstruct

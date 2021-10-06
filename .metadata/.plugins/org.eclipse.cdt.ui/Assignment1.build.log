@@ -1,20 +1,6 @@
-23:33:15 **** Build of configuration Debug for project Assignment1 ****
+12:56:07 **** Build of configuration Debug for project Assignment1 ****
 make all 
-Building file: ../src/Assignment1.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Assignment1.d" -MT"src/Assignment1.o" -o "src/Assignment1.o" "../src/Assignment1.cpp"
-Finished building: ../src/Assignment1.cpp
- 
-Building file: ../src/Functions.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Functions.d" -MT"src/Functions.o" -o "src/Functions.o" "../src/Functions.cpp"
-Finished building: ../src/Functions.cpp
- 
-Building target: Assignment1
-Invoking: MacOS X C++ Linker
-g++  -o "Assignment1"  ./src/Assignment1.o ./src/Functions.o   
-Finished building target: Assignment1
- 
+make: Nothing to be done for `all'.
 
-23:33:17 Build Finished. 0 errors, 0 warnings. (took 1s.689ms)
+12:56:08 Build Finished. 0 errors, 0 warnings. (took 459ms)
 

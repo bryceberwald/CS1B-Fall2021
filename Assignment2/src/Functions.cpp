@@ -8,11 +8,46 @@
 
 #include "Functions.h"
 
+void PrintClassHeader() {
+
+	// Declared variables for the program header to be used by this function.
+	const char PROGRAMMER[20] = "Bryce Berwald";
+	const char CLASS[5] = "CS1B";
+	const char SECTION[25] = "MW: 7:30PM-10:00PM";
+	const int ASSIGNMENT_NUM = 2;
+	const char ASSIGNMENT_NAME[30] = "Tic Tac Toe Game";
+
+	// Output the program header to output specified.
+	cout << left;
+	cout << "*******************************************************";
+	cout << "\n* PROGRAMMED BY : " << PROGRAMMER;
+	cout << "\n* " << setw(14) << "CLASS" << ": " << CLASS;
+	cout << "\n* " << setw(14) << "SECTION" << ": " << SECTION;
+	cout << "\n* ASSIGNMENT #" << setw(2) << ASSIGNMENT_NUM << ": " << ASSIGNMENT_NAME;
+	cout << "\n*******************************************************" << endl;
+	cout << right << endl;
+
+}
+
 /******************************************************************************
- *
+ * This function will display instructions for the user on how to use the
+ * program. How to make a menu option selection is explained, as well as some
+ * functionality aspects that will make the user's gaming experience more at
+ * ease.
  ******************************************************************************/
 void OutputInstruct() {
 
+	cout << "\nInstructions for the user:";
+	cout << "\n------------------------------------------";
+	cout << "\nTo change the default player names, select the first menu option below by typing\n";
+	cout << "the number 1 for that menu option to be selected. By default player X will be used\n";
+	cout << "as the first player to make a move in two player mode. To play in two player mode\n";
+	cout << "you can type the number 2 like shown in the menu options. Finally, to play in one\n";
+	cout << "player mode type 3 like shown in the menu options. One player mode will ask you to\n";
+	cout << "specify which player you'd like to use. The options available are either X or O. To\n";
+	cout << "change the player names, navigate to the setting player names menu option like stated\n";
+	cout << "before by typing 1 as the menu option. Don't want to play or tired of playing? Type\n";
+	cout << "0 and the tic-tac-toe program will be terminated. GOOD LUCK!!!" << endl;
 }
 
 
@@ -34,13 +69,17 @@ void InitBoard(char boardAr[][3]) {
 
 
 /********************************************************************************
- * This function will ask the user for the names of Player X and Player O. These
- * variables are being passed by reference to this function, so the values will
- * be stored in the main program.
- ********************************************************************************/
+* This function will ask the user for the names of Player X and Player O. These
+* variables are being passed by reference to this function, so the values will
+* be stored in the main program.
+********************************************************************************/
 void GetPlayers(string& playerX, string& playerO) {
+
+	// Who will be player X?
 	cout << "\nWhat's the name of Player X? ";
 	getline(cin, playerX);
+
+	// Who will be player O?
 	cout << "\nWhat's the name of Player O? ";
 	getline(cin, playerO);
 }
@@ -88,7 +127,6 @@ void DisplayBoard(const char boardAr[][3])
 			cout << setw(32) << "--------------------------\n";
 		}
 	}
-	//cout << endl;
 }
 
 
@@ -104,49 +142,70 @@ void DisplayBoard(const char boardAr[][3])
 ******************************************************************************/
 void GetAndCheckInp(char boardAr[][3], char token, string playerX, string playerO) {
 
-	int rowSelected;
-	int colSelected;
-	bool valid = false;
+	int rowSelected;     // INPUT - User's input row value
+	int colSelected;     // INPUT - User's input column value
+	bool valid = false;  // LCV   - Determines if user's input is available and in bounds.
 
 	do {
 
+		// Player X's turn executed here.
 		if (token == 'X') {
+
+			// Get input from the user.
 			cout << "\n" << playerX << "'s turn! What's your play? ";
 			cin >> rowSelected >> colSelected;
 
+			// Check for input values being in bounds of the array.
 			if (rowSelected < 1 || rowSelected > 3 || colSelected < 1 || colSelected > 3) {
 
+				// Display correction message.
 				cout << "Please make sure your row and column values are between 1 & 3.\n";
 				valid = false;
 
 			} else {
 
+				// Check if input values are available for selection.
 				if(boardAr[rowSelected-1][colSelected-1] == ' ') {
+
+					// Empty spot gets assigned to player X.
 					boardAr[rowSelected-1][colSelected-1] = 'X';
 					valid = true;
+
 				} else if (boardAr[rowSelected-1][colSelected-1] == 'X' || boardAr[rowSelected-1][colSelected-1] == 'O'){
+
+					// Display correction message.
 					cout << "Please choose an option that hasn't already been taken.\n";
 					valid = false;
 				}
 
 			}
 
-
+		// Player O's turn executed here.
 		} else if (token == 'O') {
+
+			// Get input from the user.
 			cout << "\n" << playerO << "'s turn! What's your play? ";
 			cin >> rowSelected >> colSelected;
 
+			// Check for input values being in bounds of the array.
 			if (rowSelected < 1 || rowSelected > 3 || colSelected < 1 || colSelected > 3) {
 
+				// Display correction message
 				cout << "Please make sure your row and column values are between 1 & 3.\n";
 				valid = false;
 
 			} else {
 
+				// Check if input values are available for selection.
 				if(boardAr[rowSelected-1][colSelected-1] == ' ') {
+
+					// Empty spot gets assigned to player O.
 					boardAr[rowSelected-1][colSelected-1] = 'O';
 					valid = true;
+
 				} else if (boardAr[rowSelected-1][colSelected-1] == 'X' || boardAr[rowSelected-1][colSelected-1] == 'O'){
+
+					// Display correction message.
 					cout << "Please choose an option that hasn't already been taken.\n";
 					valid = false;
 				}
@@ -189,6 +248,7 @@ char SwitchToken(char token) {
 ******************************************************************************/
 char CheckWin(const char boardAr[][3]) {
 
+	// Variables used by sub program.
 	int boardCounter = 0;
 	char returnedChar = 'N';
 
