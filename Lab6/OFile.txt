@@ -1,0 +1,55 @@
+*******************************************************
+* PROGRAMMED BY : Bryce Berwald
+* CLASS         : CS1B
+* SECTION       : MW: 7:30PM-10:00PM
+* LAB #6        : Structs
+*******************************************************
+
+ID #      Name                          BALANCE DUE                             
+-----     --------------------          -----------                   
+1001      Jean Rousseau                 $     15.50
+
+1002      Steve Woolston                $   1423.20
+
+1005      Michele Rousseau              $     52.75
+
+1007      Pete McBride                  $    500.32
+
+1010      Florence Rousseau             $   1323.38
+
+1009      Lisa Covi                     $    332.35
+
+1003      Don McBride                   $     12.32
+
+1008      Chris Carroll                 $     32.35
+
+1004      Yolanda Agredano              $    356.00
+
+1006      Sally Sleeper                 $     32.36
+
+
+
+
+
+The largest balance is: 
+ID #      Name                          BALANCE DUE                             
+-----     --------------------          -----------                   
+1002      Steve Woolston                $   1423.20
+
+
+The sum of all persons balances: 
+$    4080.53
+
+
+Search Names: 
+ID #      Name                          BALANCE DUE                             
+-----     --------------------          -----------                   
+1002      Steve Woolston                $   1423.20
+
+1008      Chris Carroll                 $     32.35
+
+1009      Lisa Covi                     $    332.35
+
+1010      Florence Rousseau             $   1323.38
+
+                     Total Balance Due: $   3111.28

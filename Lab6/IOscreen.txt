@@ -1,0 +1,32 @@
+*******************************************************
+* PROGRAMMED BY : Bryce Berwald
+* CLASS         : CS1B
+* SECTION       : MW: 7:30PM-10:00PM
+* LAB #6        : Structs
+*******************************************************
+
+What input file would you like to use?  InFile.txt
+
+What output file would you like to use? OFile.txt
+
+Who do you want to search for (enter done to exit): Steve Woolston
+Person Found.
+
+Who do you want to search for (enter done to exit): Jacques Rousseau
+Person was not found.
+
+Who do you want to search for (enter done to exit): Chris Carroll
+Person Found.
+
+Who do you want to search for (enter done to exit): Lisa Covi
+Person Found.
+
+Who do you want to search for (enter done to exit): Florence Rousseau
+Person Found.
+
+Who do you want to search for (enter done to exit): Frankie Lane
+Person was not found.
+
+Who do you want to search for (enter done to exit): done
+
+Thank you for using my program!
