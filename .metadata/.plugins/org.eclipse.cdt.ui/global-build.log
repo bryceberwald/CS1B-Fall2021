@@ -1,23 +1,6 @@
-00:19:17 **** Incremental Build of configuration Debug for project Lab6 ****
+22:12:49 **** Incremental Build of configuration Debug for project Lab-7 ****
 make all 
 make: Nothing to be done for `all'.
-00:19:18 **** Incremental Build of configuration Debug for project Lab-7 ****
+22:12:51 **** Incremental Build of configuration Debug for project Lab-7 ****
 make all 
 make: Nothing to be done for `all'.
-01:13:09 **** Incremental Build of configuration Debug for project Lab-7 ****
-make all 
-Building file: ../src/Functions.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Functions.d" -MT"src/Functions.o" -o "src/Functions.o" "../src/Functions.cpp"
-Finished building: ../src/Functions.cpp
- 
-Building file: ../src/Lab-7.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Lab-7.d" -MT"src/Lab-7.o" -o "src/Lab-7.o" "../src/Lab-7.cpp"
-Finished building: ../src/Lab-7.cpp
- 
-Building target: Lab-7
-Invoking: MacOS X C++ Linker
-g++  -o "Lab-7"  ./src/Functions.o ./src/Lab-7.o   
-Finished building target: Lab-7
- 

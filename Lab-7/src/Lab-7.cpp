@@ -41,17 +41,41 @@ int main() {
 	// Call function to print the class header to the console.
 	PrintHeader(cout);
 
+	// Test stub # 1
+	cout << "\nTest Stub for GetAndCheckInput() Function: ";
+	cout << "\nThe number of sheep prior to the function call is: " << numberOfSheep;
+	cout << "\nThe number of chocolate bars prior to the function call is: " << numberOfChocolateBars << endl;
+
 	// Call function to get and check the input values from the user.
 	GetAndCheckInput(numberOfSheep, numberOfChocolateBars);
+
+	// Test driver # 1
+	cout << "\nTest Driver for GetAndCheckInput() Function: ";
+	cout << "\nThe number of sheep returned is: " << numberOfSheep;
+	cout << "\nThe number of chocolate bars returned is: " << numberOfChocolateBars << endl;
 
 	// Assign the initial value of bars left to the total number of bars.
 	barsLeft = numberOfChocolateBars;
 
+	// Test stub # 2
+	cout << "\nTest Stub for CalculateResults() Function: ";
+	cout << "\nThe number of chocolate bars per sheep prior to function call is : " << counter;
+	cout << "\nThe number of chocolate bars remaining prior to function call is : " << barsLeft << endl;
+
 	// Call function to calculate the number of bars each sheep will eat and the remainder.
 	CalculateResults(barsLeft, counter, numberOfSheep);
 
+	// Test driver # 2
+	cout << "\nTest Driver for CalculateResults() Function: ";
+	cout << "\nThe number of chocolate bars per sheep returned is: " << counter;
+	cout << "\nThe number of chocolate bars remaining returned is: " << barsLeft << endl;
+
 	// Call function to display the results via the console.
 	OutputResults(counter, barsLeft, numberOfChocolateBars, numberOfSheep);
+
+	// Test driver # 3
+	cout << "\n\nTest Driver for OutputResults() Function: ";
+	cout << "\nNo values are returned by this function.";
 
 	return 0;
 }

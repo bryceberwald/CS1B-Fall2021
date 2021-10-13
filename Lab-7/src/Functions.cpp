@@ -58,14 +58,18 @@ void GetAndCheckInput(int& numberOfSheep, int& numberOfChocolateBars) {
 		if (numberOfSheep < 0 || numberOfChocolateBars < 0) {
 
 			// Sheep Value is NEGATIVE
-			if (numberOfSheep < 0) {
+			if (numberOfSheep < 0 && numberOfChocolateBars < 0) {
 
 				// Display feedback message.
-				cout << "\nThere can not be a negative sheep value. Try again!\n";
+				cout << "\nThere can not be negative sheep/chocolate bar values. Try again.\n";
 				validInput = false;
 
 			// Chocolate Bar Value is NEGATIVE
+			} else if (numberOfSheep < 0) {
+				cout << "\nThere can not be a negative sheep value. Try again!\n";
+				validInput = false;
 			} else if (numberOfChocolateBars < 0) {
+
 
 				// Display feedback message.
 				cout << "\nThere can not be negative chocolate bars. Try again!\n";
@@ -84,7 +88,7 @@ void GetAndCheckInput(int& numberOfSheep, int& numberOfChocolateBars) {
 
 			// Display feedback message.
 			cout << "\nSheep must all receive the same amount of chocolate bars.";
-			cout << "\nPlease choose at least as many sheep as chocolate bars. Try again!\n";
+			cout << "\nPlease choose at least as many sheep as chocolate bars or zero for all. Try again!\n";
 			validInput = false;
 
 		// INPUT IS VALID
