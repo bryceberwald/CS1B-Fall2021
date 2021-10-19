@@ -1,0 +1,20 @@
+*******************************************************
+* PROGRAMMED BY : Bryce Berwald
+* CLASS         : CS1B
+* SECTION       : MW: 7:30PM-10:00PM
+* LAB #8        : Introduction to Pointers
+*******************************************************
+
+Input the first value (enter -999 to exit)? 5
+Input the second value?                     25
+
+The sum is:     30
+The product is: 125
+
+Input the first value (enter -999 to exit)? -12
+Input the second value?                     100
+
+The sum is:     88
+The product is: -1200
+
+Input the first value (enter -999 to exit)? -999

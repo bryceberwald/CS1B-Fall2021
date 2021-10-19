@@ -1,0 +1,93 @@
+*******************************************************
+* PROGRAMMED BY : Bryce Berwald
+* CLASS         : CS1B
+* SECTION       : MW: 7:30PM-10:00PM
+* LAB #7        : Testing
+*******************************************************
+
+Test Stub for GetAndCheckInput() Function: 
+The number of sheep prior to the function call is: 0
+The number of chocolate bars prior to the function call is: 0
+
+How many sheep are there? 3
+
+How many chocolate bars? 10
+
+Test Driver for GetAndCheckInput() Function: 
+The number of sheep returned is: 3
+The number of chocolate bars returned is: 10
+
+Test Stub for CalculateResults() Function: 
+The number of chocolate bars per sheep prior to function call is : 0
+The number of chocolate bars remaining prior to function call is : 10
+
+Test Driver for CalculateResults() Function: 
+The number of chocolate bars per sheep returned is: 3
+The number of chocolate bars remaining returned is: 1
+
+Each sheep will eat 3 chocolate bars each. Leaving 1 left over.
+
+Test Driver for OutputResults() Function: 
+No values are returned by this function.
+
+Test Stub for GetAndCheckInput() Function: 
+The number of sheep prior to the function call is: 0
+The number of chocolate bars prior to the function call is: 0
+
+How many sheep are there? -1
+
+How many chocolate bars? -5
+
+There can not be negative sheep/chocolate bar values. Try again.
+
+How many sheep are there? -1
+
+How many chocolate bars? 2
+
+There can not be a negative sheep value. Try again!
+
+How many sheep are there? 0
+
+How many chocolate bars? 0
+
+Test Driver for GetAndCheckInput() Function: 
+The number of sheep returned is: 0
+The number of chocolate bars returned is: 0
+
+Test Stub for CalculateResults() Function: 
+The number of chocolate bars per sheep prior to function call is : 0
+The number of chocolate bars remaining prior to function call is : 0
+
+Test Driver for CalculateResults() Function: 
+The number of chocolate bars per sheep returned is: 0
+The number of chocolate bars remaining returned is: 0
+
+No sheep will eat any chocolate bars. Leaving 0 left over.
+
+Test Driver for OutputResults() Function: 
+No values are returned by this function.
+
+Test Stub for GetAndCheckInput() Function: 
+The number of sheep prior to the function call is: 0
+The number of chocolate bars prior to the function call is: 0
+
+How many sheep are there? 5
+
+How many chocolate bars? 0
+
+Test Driver for GetAndCheckInput() Function: 
+The number of sheep returned is: 5
+The number of chocolate bars returned is: 0
+
+Test Stub for CalculateResults() Function: 
+The number of chocolate bars per sheep prior to function call is : 0
+The number of chocolate bars remaining prior to function call is : 0
+
+Test Driver for CalculateResults() Function: 
+The number of chocolate bars per sheep returned is: 0
+The number of chocolate bars remaining returned is: 0
+
+All 5 sheep will have 0 chocolate bars. Leaving 0 left over.
+
+Test Driver for OutputResults() Function: 
+No values are returned by this function.
