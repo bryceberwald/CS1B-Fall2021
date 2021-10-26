@@ -36,6 +36,27 @@ void PrintHeader(ostream &output) {
 
 
 /****************************************************************************************
+* This function will validate whether the users input is an integer or a character. If
+* the users input is a character, the function will return false, otherwise true.
+*
+* 1 Argument -> RETURNS: Boolean
+*****************************************************************************************/
+bool ValidateNumber (string menuOptionStr) {
+
+   bool isValid;
+
+   for (int i = 0; i < menuOptionStr.length(); i++)
+	   if (isdigit(menuOptionStr[i]) == false){
+		   isValid = false;
+	   } else {
+		   isValid = true;
+	   }
+
+   return isValid;
+}
+
+
+/****************************************************************************************
 * This function will print the menu options for the user to make a selection. The menu
 * options utilize a few techniques learned through pointers and linked lists. The user
 * must select a menu option in the correct range otherwise they will be prompted to change
@@ -45,34 +66,34 @@ void PrintHeader(ostream &output) {
 *****************************************************************************************/
 void PrintMenuOptions(int &menuOption) {
 
-	bool valid = false;
+	string menuOptionStr;
+	bool isNumber = false;
 
-	do {
-		cout << "\nSTACK MENU: ";
-		cout << "\n1 – Add a person (PUSH)";
-		cout << "\n2 – Remove a person (POP)";
-		cout << "\n3 – Is the stack empty? (ISEMPTY)";
-		cout << "\n4 – Who is on top? (PEEK)";
-		cout << "\n5 – How many people are there? (SIZE)";
-		cout << "\n0 – to Exit";
+		do {
+			cout << "\nSTACK MENU: ";
+			cout << "\n1 – Add a person (PUSH)";
+			cout << "\n2 – Remove a person (POP)";
+			cout << "\n3 – Is the stack empty? (ISEMPTY)";
+			cout << "\n4 – Who is on top? (PEEK)";
+			cout << "\n5 – How many people are there? (SIZE)";
+			cout << "\n0 – to Exit";
 
-		cout << "\nPlease enter a command: ";
-		cin >> menuOption;
+			cout << "\nPlease enter a command: ";
+			cin >> menuOptionStr;
 
-		cin.ignore(10000, '\n');
+			cin.ignore(10000, '\n');
 
-		if (menuOption >= 0 && menuOption < 6) {
-			valid = true;
-		}
+			isNumber = ValidateNumber(menuOptionStr);
 
-		if (menuOption < 0 || menuOption >= 6) {
-			cout << "\n**** The number " << menuOption << " is an invalid entry ****";
-			cout << "\n**** Please input a number between 0 and 5 ****\n";
+			if (!isNumber) {
+				cout << "\n**** Please input a NUMBER between 0 and 5 ****\n";
+			}
 
-			valid = false;
-		}
 
-	} while(!valid);
+		} while(!isNumber);
+
+		menuOption = atoi(menuOptionStr.c_str());
+
 }
 
 
