@@ -51,6 +51,12 @@ int main() {
 	// Call function to get input and output file names from the user.
 	readFileNames(inputFileName, outputFileName);
 
+	ofstream oFile;
+	oFile.open(outputFileName, ios::app);
+
+	// Call function to print class header to file.
+	printHeader(oFile);
+
 	// Call function to create a linked list and return the new head.
 	head = CreateLinkedList(inputFileName, head);
 
@@ -71,17 +77,26 @@ int main() {
 			case OutputEntireList:
 				// Code for outputting entire linked list.
 
+				// Call function to output all of linked list contents.
+				OutputEntireListContents(outputFileName, head);
+
 				// Call function to redisplay menu options.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case TitleSearch:
 				// Code for searching for a title in the linked list.
 
+				// Call function to perform a title search.
+				PerformSearch(menuOptionSelected, outputFileName, head);
+
 				// Call function to redisplay menu options.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case GenreSearch:
 				// Code for searching for a genre in the linked list.
+
+				// Call function to perform a genre search.
+				PerformSearch(menuOptionSelected, outputFileName, head);
 
 				// Call function to redisplay menu options.
 				PrintMenuOptions(menuOptionSelected);
@@ -113,6 +128,7 @@ int main() {
 				break;
 		}
 	}
+	oFile.close();
 
 	return 0;
 }

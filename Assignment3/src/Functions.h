@@ -54,6 +54,14 @@ struct DVD {
 void printHeader(ostream &output);
 
 /*************************************************************************
+ *
+ *
+ *
+ *
+*************************************************************************/
+void PrintRecordHeadingToFile(string outputFileName);
+
+/*************************************************************************
 * This is the function prototype for reading in the file names from the
 * user. We will need to get an input file name and an output file name
 * from the user. The variables will be stored in main.
@@ -87,6 +95,22 @@ void OutputList(DVD *head);
 * 1  Argument passed by reference -> RETURNS: Nothing
 *************************************************************************/
 void PrintMenuOptions(int &menuOption);
+
+/*************************************************************************
+*
+*
+*
+*
+*************************************************************************/
+void OutputEntireListContents(string outputFileName, DVD *head);
+
+/*************************************************************************
+*
+*
+*
+*
+*************************************************************************/
+void PerformSearch(int menuOption, string outputFileName, DVD *head);
 
 
 #endif /* FUNCTIONS_H_ */

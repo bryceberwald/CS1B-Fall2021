@@ -1,13 +1,8 @@
-23:39:04 **** Incremental Build of configuration Debug for project Lab9 ****
+23:22:27 **** Incremental Build of configuration Debug for project Assignment3 ****
 make all 
 make: Nothing to be done for `all'.
-23:39:07 **** Incremental Build of configuration Debug for project Assignment3 ****
+23:22:30 **** Incremental Build of configuration Debug for project Assignment3 ****
 make all 
-Building file: ../src/Assignment3.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Assignment3.d" -MT"src/Assignment3.o" -o "src/Assignment3.o" "../src/Assignment3.cpp"
-Finished building: ../src/Assignment3.cpp
- 
 Building file: ../src/Functions.cpp
 Invoking: GCC C++ Compiler
 g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Functions.d" -MT"src/Functions.o" -o "src/Functions.o" "../src/Functions.cpp"

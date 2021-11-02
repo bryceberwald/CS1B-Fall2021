@@ -32,6 +32,33 @@ void printHeader(ostream &output) {
 }
 
 
+/************************************************************************
+ *
+************************************************************************/
+void PrintRecordHeadingToFile(string outputFileName) {
+
+	ofstream oFile;
+	oFile.open(outputFileName, ios::app);
+
+	oFile << left;
+
+	oFile << "\nMOVIE # " << setw(49) << " TITLE" << "YEAR " << "RATING  "
+		  << setw(18) << "GENRE" << setw(18) << "ALT GENRE" << setw(20) << "LEAD ACTOR"
+		  << "SUPPORTING ACTOR";
+
+	oFile << "\n------- ";
+	oFile << "------------------------------------------------ ";
+	oFile << "---- ";
+	oFile << "------ ";
+	oFile << "----------------- ";
+	oFile << "----------------- ";
+	oFile << "------------------- ";
+	oFile << "-------------------\n";
+
+	//oFile.close();
+}
+
+
 /*******************************************************************************
  * This function will get input from the user, collecting the input file name
  * and the output file name and storing the string values in main since they
@@ -86,7 +113,7 @@ DVD *CreateLinkedList(string inputFileName, DVD *head) {
 		}
 		delete perPtr;
 	}
-    inFile.close();
+    //inFile.close();
     return head;
 }
 
@@ -111,6 +138,10 @@ void OutputList(DVD *head) {
         cout << "\nRating: " << perPtr->rating;
         cout << "\nDescription: " << perPtr->synopis;
 
+//        cout << perPtr->title << perPtr->leadActor << perPtr->supportingActor
+//        	 << perPtr->genre << perPtr->alternativeGenre << perPtr->year
+//			 << perPtr->rating << perPtr-> synopis;
+
         perPtr = perPtr->next;
     }
 }
@@ -132,12 +163,199 @@ void PrintMenuOptions(int &menuOption) {
 	cout << "\n6 - Rating Search (0-9)";
 	cout << "\n0 – Exit";
 
-	cout << "\nEnter an option (0 to exit):";
+	cout << "\nEnter an option (0 to exit): ";
 	cin >> menuOption;
 
 	cin.ignore(10000, '\n');
 }
 
 
+/************************************************************************
+ *
+ *
+ *
+************************************************************************/
+void OutputEntireListContents(string outputFileName, DVD *head) {
+
+	ofstream oFile;
+	oFile.open(outputFileName, ios::app);
+
+	oFile << "\nCOMPLETE MOVIE LISTING";
+
+	oFile << left;
+
+	oFile << "\nMOVIE # " << setw(49) << " TITLE" << "YEAR " << "RATING  "
+		  << setw(18) << "GENRE" << setw(18) << "ALT GENRE" << setw(20) << "LEAD ACTOR"
+		  << "SUPPORTING ACTOR";
+
+	oFile << "\n------- ";
+	oFile << "------------------------------------------------ ";
+	oFile << "---- ";
+	oFile << "------ ";
+	oFile << "----------------- ";
+	oFile << "----------------- ";
+	oFile << "------------------- ";
+	oFile << "-------------------\n";
+
+	DVD *perPtr;
+
+	perPtr = head;
+
+	int counter = 1;
+
+	while(perPtr != NULL) {
+
+		oFile << left << "   ";
+		oFile << setw(7) << counter;
+		oFile << setw(47) << perPtr->title;
+		oFile << setw(8) << perPtr->year;
+		oFile << setw(6) << perPtr->rating;
+		oFile << setw(18) << perPtr->genre;
+		oFile << setw(18) << perPtr->alternativeGenre;
+		oFile << setw(20) << perPtr->leadActor;
+		oFile << setw(22) << perPtr->supportingActor << endl;
+
+		perPtr = perPtr->next;
+
+		counter++;
+	}
+
+	oFile.close();
+}
+
+
+/************************************************************************
+ *
+ *
+ *
+************************************************************************/
+void PerformSearch(int menuOption, string outputFileName, DVD *head){
+
+	ofstream oFile;
+	oFile.open(outputFileName, ios::app);
+
+	DVD *perPtr;
+
+	string searchString;
+
+	//int searchInteger;
+
+	bool found = false;
+	int counter = 0;
+
+	perPtr = head;
+
+	switch(menuOption){
+
+		case TitleSearch:
+
+			// Ask the user which title they would like to search for.
+			cout << "\nWhich title are you looking for? ";
+			getline(cin, searchString);
+
+			// Loop until the end of list and also while hasn't been found.
+			while(perPtr != NULL && !found){
+
+				if(perPtr->title == searchString) {
+					found = true;
+				} else {
+					perPtr = perPtr->next;
+					found = false;
+				}
+			}
+
+			// Check if movie searched was found.
+			if (found) {
+				cout << "Found the movie " << perPtr->title << endl;
+
+				// CODE FOR OUTPUTTING TO FILE
+
+
+				// END OF CODE
+
+
+			} else {
+				cout << "Sorry, the movie \"" << searchString << "\" was not found.\n";
+			}
+
+			// Reset the head back to the original value.
+			perPtr = head;
+
+			break;
+
+		case GenreSearch:
+
+			// Ask the user which genre they would like to seach for.
+			cout << "\nWhich genre are you looking for? ";
+			getline(cin, searchString);
+
+			// Output heading to file for genre searches being performed.
+			oFile << "\nSearch by genre for " << searchString << " found: ";
+			oFile << left;
+			oFile << "\nMOVIE # " << setw(49) << " TITLE" << "YEAR " << "RATING  "
+				  << setw(18) << "GENRE" << setw(18) << "ALT GENRE" << setw(20) << "LEAD ACTOR"
+				  << "SUPPORTING ACTOR";
+			oFile << "\n------- ";
+			oFile << "------------------------------------------------ ";
+			oFile << "---- ";
+			oFile << "------ ";
+			oFile << "----------------- ";
+			oFile << "----------------- ";
+			oFile << "------------------- ";
+			oFile << "-------------------\n";
+
+			// Loop until the end of the linked list.
+			while(perPtr != NULL){
+
+				if (searchString == perPtr->genre || searchString == perPtr->alternativeGenre){
+
+					oFile << left << "   ";
+					oFile << setw(7) << counter+1;
+					oFile << setw(47) << perPtr->title;
+					oFile << setw(8) << perPtr->year;
+					oFile << setw(6) << perPtr->rating;
+					oFile << setw(18) << perPtr->genre;
+					oFile << setw(18) << perPtr->alternativeGenre;
+					oFile << setw(20) << perPtr->leadActor;
+					oFile << setw(22) << perPtr->supportingActor << endl;
+
+					counter++;
+				}
+
+				perPtr = perPtr->next;
+			}
+
+			// Check how many instances of the searched genre were found.
+			if (counter == 0) {
+				cout << "Sorry, no movies for the genre, " << searchString << " were found.\n";
+				oFile << "NOTHING WAS FOUND DURING THE SEARCH.\n\n";
+			} else {
+				cout << "Found " << counter << " movies for the genre " << searchString << "!\n";
+			}
+
+			// Reset counter variable.
+			counter = 0;
+
+			// Reset the head back to the original value.
+			perPtr = head;
+
+			break;
+
+		case ActorSearch:
+			// Code for Actor Searches
+			break;
+		case YearSearch:
+			// Code for Year Searches
+			break;
+		case RatingSearch:
+			// Code for Rating Searches
+			break;
+		default:
+			// Error Checking!
+			break;
+
+	}
+
+}
 
 
