@@ -14,22 +14,32 @@
  *
  * ________________________________________________________________________
  *
- *
- * Description goes here...
- *
- *
- *
- *
+ * This program will use a linked list to store the data using a menu option
+ * for different manipulations to be done using queue operations. The queue
+ * calls for a few functions that are needed to be carried out. Enqueue will
+ * add new list items to the end of the linked list. Dequeue will remove the
+ * first item in the linked list. IsEmpty, Front and Size will return the
+ * appropriate information concerning the queue. Finally, ClearTheQueue will
+ * remove every item from the queue displaying to the console removed items
+ * as they are being removed. This program ultimately serves as a template
+ * for a basic implementation of a queue.
  * ________________________________________________________________________
  *
  *
  * INPUT:
- *
+ *    menuOptionSelected - User inputs this value when selecting a menu option.
+ *    perPtr->name       - User will enqueue a new name into the linked list.
+ *    perPtr->gender     - User will enqueue a new gender into the linked list.
+ *    perPtr->age        - User will enqueue a new age into the linked list.
  *
  *
  *
  * OUTPUT:
- *
+ *    menuOptionSelected - Displayed to console whenever the number is out of range.
+ *    perPtr->name       - Displayed to the console under certain menu options.
+ *    perPtr->gender     - Displayed to the console under certain menu options.
+ *    perPtr->age        - Displayed to the console under certain menu options.
+ *    queueCounter       - Displayed to the console when 'Size' option is selected.
  *
  *
  *
@@ -46,10 +56,6 @@ int main() {
 	// Create a pointer to a new PersonNode.
 	PersonNode *head;
 
-	PersonNode *tail;
-
-	tail = NULL;
-
 	// Initialize the head to NULL.
     head = NULL;
 
@@ -64,14 +70,14 @@ int main() {
 		    	inSession = false;
 		    	break;
 			case Enqueue:
-				// Call function to enqueue to the linked list.
+				// Call function to add to the rear of linked list.
 				EnqueueItem(head);
 
 				// Call function to redisplay menu options.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case Dequeue:
-				// Call function to remove last item from linked list.
+				// Call function to remove from the front of linked list.
 				DequeueItem(head);
 
 				// Call function to redisplay menu options.
@@ -85,14 +91,16 @@ int main() {
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case Front:
-				// Call function to look at the front most item.
+				// Call function to get the first item of linked list.
 				FrontItem(head);
 
 				// Call function to redisplay menu options.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case Size:
-				int queueCounter;
+				int queueCounter;   // CALC/OUT - Used to determine linked list size.
+
+				// Call function to get the total size in the queue.
 			    queueCounter = QueueInstances(head);
 
 			    // MORE than ONE person in the queue display message.
@@ -114,6 +122,7 @@ int main() {
 				break;
 			case ClearQueue:
 				// Code for clearing the queue.
+				ClearTheQueue(head);
 
 				// Call function to redisplay menu options.
 				PrintMenuOptions(menuOptionSelected);

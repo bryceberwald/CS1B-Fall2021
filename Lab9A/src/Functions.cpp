@@ -9,33 +9,6 @@
 #include "Functions.h"
 
 /****************************************************************************************
-* This function can print to either the console or the output file using ostream type
-* with the specified variable being passed by reference.
-*
-* 1 Argument -> RETURNS: Nothing
-*****************************************************************************************/
-void PrintHeader(ostream &output) {
-
-	// Declared variables for the program header to be used by this function.
-	const char PROGRAMMER[20] = "Bryce Berwald";
-	const char CLASS[5] = "CS1B";
-	const char SECTION[25] = "MW: 7:30PM-10:00PM";
-	const char LAB_NUM[3] = "9A";
-	const char LAB_NAME[30] = "Implementing a Queue";
-
-	// Output the program header to output specified.
-	output << left;
-	output << "*******************************************************";
-	output << "\n* PROGRAMMED BY : " << PROGRAMMER;
-	output << "\n* " << setw(14) << "CLASS" << ": " << CLASS;
-	output << "\n* " << setw(14) << "SECTION" << ": " << SECTION;
-	output << "\n* LAB #" << setw(9) << LAB_NUM << ": " << LAB_NAME;
-	output << "\n*******************************************************" << endl;
-	output << right;
-}
-
-
-/****************************************************************************************
 * This function will validate whether the users input is an integer or a character. If
 * the users input is a character, the function will return false, otherwise true.
 *
@@ -99,12 +72,12 @@ void PrintMenuOptions(int &menuOption) {
 
 
 /****************************************************************************************
-* This function is designed to enqueue a new element to the front of the linked list. The
-* function will gather three different input fields (Name, Gender & Age) respectfully.
-* After dynamically creating a new PersonNode, we will add a new list item and reassign
-* the pointers in the list for future continuation.
+* This function will add linked list items to the end of the list. By doing this we will
+* need to find the tail of the linked list. If the list is empty initially then the users
+* input will be automated stored in the head, Otherwise in the positions following the head
+* known as the tail.
 *
-* 1 Argument -> RETURNS: head
+* 1 Argument -> RETURNS: Nothing
 *****************************************************************************************/
 void EnqueueItem(PersonNode *&head){
 
@@ -153,10 +126,9 @@ void EnqueueItem(PersonNode *&head){
 
 
 /****************************************************************************************
-* This function will go through our linked list and remove the last element from the list
-* when possible. If the list is already empty, no element will be removed from the list.
-* The head is being passed by reference to be updated when needed. A few different checks
-* will be done to ensure different circumstances hold.
+* This function will remove linked list items from the front of the list. Reassigning
+* the head to the next linked list item. The contents of the dequeued item will be
+* displayed to the console.
 *
 * 1 Argument -> RETURNS: Nothing
 *****************************************************************************************/
@@ -265,14 +237,35 @@ int QueueInstances(PersonNode *head){
 
 
 /************************************************************************
+ * This function will eliminate every item from the linked list. If the
+ * list is already empty, only a message to the console will be displayed,
+ * otherwise each item will be assigned a next pointer and nullify the
+ * current pointer till the end of the list has been reached, we also will
+ * nullify the head to ensure an empty list.
  *
- *
- *
+ * 1 Argument -> RETURNS: Nothing
 ************************************************************************/
-void ClearTheQueue() {
+void ClearTheQueue(PersonNode *&head) {
+
+	PersonNode *perPtr;
+	PersonNode *nextPtr;
+
+	perPtr = head;
+
+	if (head == NULL) {
+		cout << "\nThe QUEUE is ALREADY clear!\n";
+	} else {
+		cout << "\nCLEARING...\n";
+		while (perPtr != NULL) {
+			cout << perPtr->name << endl;
+			nextPtr = perPtr->next;
+			perPtr = NULL;
+			perPtr = nextPtr;
+
+		}
+		head = NULL;
+		cout << "\nThe queue has been CLEARED!\n";
+	}
 
 }
-
-
-
 

@@ -28,7 +28,6 @@ enum {
 	UnSelected,      // 7
 };
 
-// Created Struct with 3 different data types.
 struct PersonNode {
 
     string name;
@@ -69,18 +68,17 @@ bool ValidateNumber (string menuOptionStr);
 void PrintMenuOptions(int &menuOption);
 
 /**********************************************************************************
- * Function prototype to enqueue a new item into a linked list. One parameter is
- * being passed by value and is returned to the main program to have the updated
- * head of our linked list.
+ * Function prototype for adding linked list items to the end of the list. One
+ * parameter is being passed by reference to keep the variable updated in main.
  *
- * 1 Argument -> RETURNS: head
+ * 1 Argument -> RETURNS: Nothing
  *********************************************************************************/
-//PersonNode *EnqueueItem(PersonNode *head);
 void EnqueueItem(PersonNode *&head);
 
 /**********************************************************************************
- * Function prototype to dequeue the last item of our linked list. One parameter is
- * being passed by reference to keep our head updated in main.
+ * Function prototype for removing linked list items from the front of the list.
+ * Only one parameter is being passed by reference to keep our head updated in the
+ * main program.
  *
  * 1 Argument -> RETURNS: Nothing
  *********************************************************************************/
@@ -113,6 +111,15 @@ void FrontItem(PersonNode *head);
  *********************************************************************************/
 int QueueInstances(PersonNode *head);
 
+/**********************************************************************************
+ * Function prototype for the clearing our linked list items. The function will set
+ * every item equal to NULL till the end of the list where the head will be set to
+ * NULL. Only one parameter is being passed by reference, we need main to have the
+ * empty list.
+ *
+ * 1 Argument -> RETURNS: Nothing
+ *********************************************************************************/
+void ClearTheQueue(PersonNode *&head);
 
 
 #endif /* FUNCTIONS_H_ */

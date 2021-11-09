@@ -12,21 +12,25 @@
  *
  * Assignment #3: CS1B - Searching Linked Lists
  *
- *
  * ________________________________________________________________________________________
  *
- *
- * Description goes here...
- *
- *
+ * This program will read in a bunch of movies from the input file. The user will have the
+ * ability to choose from a menu of options. The menu will allow the user to display the
+ * entire movie list contents to the output file, as well as search for a movie through a
+ * variety of different methods. The user will be able to search a movie by title, genre,
+ * actor, year or rating. The numerical amount found will be displayed to the console but
+ * the resulting values will be displayed in the output file. The user has the ability to
+ * terminate the program at any time by pressing zero.
  * ________________________________________________________________________________________
  *
  * INPUT:
- *
- *
+ *   menuOptionSelected - User will input a value for a menu option.
+ *   inputFileName      - User has the option to input a file name.
+ *   outputFileName     - User has the option to input a file name.
  *
  * OUTPUT:
- *
+ *	 DVD *perPtr - Displayed to console and/or file as needed.
+ *	 counter     - Displayed to console and/or file as needed.
  *
  *
  ******************************************************************************************/
@@ -36,11 +40,11 @@ int main() {
 	// Call function to print class header to the console.
 	printHeader(cout);
 
-	string inputFileName;     // INPUT - User determines variable value for input file.
-	string outputFileName;    // INPUT - User determines variable value for output file.
+	string inputFileName;                // INPUT - User determines variable value for input file.
+	string outputFileName;               // INPUT - User determines variable value for output file.
 
-	int menuOptionSelected = Unselected;
-	bool inSession = true;
+	int menuOptionSelected = Unselected; // INPUT - Used to select specific menu options. Unselected = 7, Which is out of range!
+	bool inSession = true;               // LCV   - Used to determine the length of the program.
 
 	// Create pointer that will used as the head.
 	DVD *head;
@@ -59,9 +63,6 @@ int main() {
 
 	// Call function to create a linked list and return the new head.
 	head = CreateLinkedList(inputFileName, head);
-
-	// Call function to output linked list for testing purposes.
-	OutputList(head);
 
 	// Call function to display menu options.
 	PrintMenuOptions(menuOptionSelected);
@@ -104,11 +105,17 @@ int main() {
 			case ActorSearch:
 				// Code for searching for an actor in the linked list.
 
+				// Call function to perform a genre search.
+				PerformSearch(menuOptionSelected, outputFileName, head);
+
 				// Call function to redisplay menu options.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case YearSearch:
 				// Code for searching for a year in the linked list.
+
+				// Call function to perform a genre search.
+				PerformSearch(menuOptionSelected, outputFileName, head);
 
 				// Call function to redisplay menu options.
 				PrintMenuOptions(menuOptionSelected);
@@ -116,17 +123,23 @@ int main() {
 			case RatingSearch:
 				// Code for searching for a rating in the linked list.
 
+				// Call function to perform a genre search.
+				PerformSearch(menuOptionSelected, outputFileName, head);
+
 				// Call function to redisplay menu options.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			default:
 				// Error Checking!!!
-				cout << "\nPlease Choose a Valid Menu Option.\n";
+				cout << "\n**** The number " << menuOptionSelected << " is an invalid entry  *****";
+				cout << "\n**** Please input a number between 0 and 6 *****\n";
 
 				// Call function to redisplay menu options.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 		}
+
+
 	}
 	oFile.close();
 
