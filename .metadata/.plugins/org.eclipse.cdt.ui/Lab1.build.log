@@ -1,6 +1,6 @@
-23:15:13 **** Build of configuration Debug for project Lab1 ****
+20:54:31 **** Build of configuration Debug for project Lab1 ****
 make all 
 make: Nothing to be done for `all'.
 
-23:15:14 Build Finished. 0 errors, 0 warnings. (took 411ms)
+20:54:32 Build Finished. 0 errors, 0 warnings. (took 283ms)
 

@@ -1,5 +1,6 @@
 LaunchTargetManager/configs/Assignment2=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Assignment3=org.eclipse.launchbar.core.launchTargetType.local\:Local
+LaunchTargetManager/configs/Lab10=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Lab3=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Lab6=org.eclipse.launchbar.core.launchTargetType.local\:Local
 LaunchTargetManager/configs/Lab8=org.eclipse.launchbar.core.launchTargetType.local\:Local

@@ -42,64 +42,71 @@ int main() {
 	head = NULL;
 
 	string inputFileName = "inputFile.txt";
-
 	int menuOptionSelected = UnSelected;
 	bool inSession = true;
 
+	// Call function to display class header to the console.
 	PrintHeader(cout);
 
 	// Call function to display menu options to the console.
 	PrintMenuOptions(menuOptionSelected);
 
 	while (inSession){
+
 		switch(menuOptionSelected){
 			case Exit:
-				// Code for terminating the program
+				// Code for terminating the program.
 				inSession = false;
 				break;
 			case CreateList:
-				// Code for creating an ordered list.
-
+				// Call function to create an ordered linked list.
 				head = CreateLinkedList(inputFileName, head);
 
 				// Call function to display menu options to the console.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case DisplayList:
-				// Code for displaying ordered linked list.
-
+				// Call function to display linked list.
 				DisplayLinkedList(head);
 
 				// Call function to display menu options to the console.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case IsEmpty:
-				// Code for indicating if the list is empty.
+				// Call function to determine if linked list is empty.
+				IsLinkedListEmpty(head);
 
 				// Call function to display menu options to the console.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case SearchByName:
-				// Code for searching by name.
+				// Call function to search linked list by name.
+				LinkedListSearch(head);
 
 				// Call function to display menu options to the console.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case RemoveNode:
-				// Code for removing a node from linked list.
+				// Call function to remove a node from linked list.
+				RemoveNodeFromLinkedList(head);
 
 				// Call function to display menu options to the console.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			case ClearList:
-				// Code for deleting all nodes in linked list.
+				// Call function to delete all nodes in linked list.
+				ClearLinkedList(head);
 
 				// Call function to display menu options to the console.
 				PrintMenuOptions(menuOptionSelected);
 				break;
 			default:
-				// Error Checking!!!
-				cout << "\nSomething went wrong in switch statement!\n";
+				// Error checking users input.
+				cout << "\n**** The number " << menuOptionSelected << " is an invalid entry ****";
+				cout << "\n**** Please input a number between 0 and 6 ****\n";
+
+				// Call function to display menu options to the console.
+				PrintMenuOptions(menuOptionSelected);
 				break;
 		}
 	}
