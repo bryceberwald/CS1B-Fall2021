@@ -1,10 +1,10 @@
-/**************************************************************************
- * AUTHOR         : BRYCE BERWALD
- * Lab #9         : Creating an Ordered List
- * CLASS          : CS1B
- * SECTION        : MW 7:30-10:00PM
- * DUE DATE       : 11/10/21 @ 11:59PM
- *************************************************************************/
+//============================================================================
+// Name        : Functions.h
+// Author      : Bryce Berwald
+// Version     :
+// Copyright   :
+// Description :
+//============================================================================
 
 #ifndef FUNCTIONS_H_
 #define FUNCTIONS_H_
@@ -17,18 +17,6 @@
 #include <fstream>
 using namespace std;
 
-// Enumerated Types used for the menu options.
-enum {
-	Exit,            // 0
-	CreateList,      // 1
-	DisplayList,     // 2
-	IsEmpty,         // 3
-	SearchByName,    // 4
-	RemoveNode,      // 5
-	ClearList,       // 6
-	UnSelected,      // 7
-};
-
 // Struct created for doubly linked list.
 struct PersonNode {
 	string name;
@@ -38,35 +26,7 @@ struct PersonNode {
 	PersonNode *prev;
 };
 
-// Prototypes for functions used in the program.
-
-/**********************************************************************************
- * Function prototype for printing the class header to the console with one
- * parameter being passed by reference to determine where we want to output to the
- * console or an output file. In the case of this program we will be outputting to
- * the console.
- *
- * 1 Argument passed by reference -> RETURNS: Nothing
- *********************************************************************************/
-void PrintHeader(ostream &output);
-
-/**********************************************************************************
- * This function prototype determines whether or not the users input is a number.
- * One parameter is passed by value, returning a boolean. This function is used
- * inside of the PrintMenuOptions() function for error checking.
- *
- * 1 Argument passed by value -> RETURNS: Boolean
- *********************************************************************************/
-bool ValidateNumber (string menuOptionStr);
-
-/**********************************************************************************
- * Function prototype for printing menu options with one parameter passed by
- * reference. Nothing is returned by this function and the variable being passed by
- * reference to the function will be updated in main as well.
- *
- * 1 Argument passed by reference -> RETURNS: Nothing
- *********************************************************************************/
-void PrintMenuOptions(int &menuOption);
+// Function Prototypes...
 
 /**********************************************************************************
  * This function prototype is for creating a doubly linked list from an input file.
@@ -136,6 +96,9 @@ void RemoveNodeFromLinkedList(PersonNode *&head);
  * 1 Argument passed by reference -> RETURNS: Nothing
  *********************************************************************************/
 void ClearLinkedList(PersonNode *&head);
+
+
+
 
 
 #endif /* FUNCTIONS_H_ */

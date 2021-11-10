@@ -1,6 +1,39 @@
-23:41:48 **** Incremental Build of configuration Debug for project Lab9A ****
+13:42:22 **** Incremental Build of configuration Debug for project Lab10 ****
 make all 
-make: Nothing to be done for `all'.
-23:42:08 **** Incremental Build of configuration Debug for project Lab10 ****
+Building file: ../src/Functions.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Functions.d" -MT"src/Functions.o" -o "src/Functions.o" "../src/Functions.cpp"
+Finished building: ../src/Functions.cpp
+ 
+Building file: ../src/Lab10.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Lab10.d" -MT"src/Lab10.o" -o "src/Lab10.o" "../src/Lab10.cpp"
+Finished building: ../src/Lab10.cpp
+ 
+Building file: ../src/Print.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Print.d" -MT"src/Print.o" -o "src/Print.o" "../src/Print.cpp"
+Finished building: ../src/Print.cpp
+ 
+Building target: Lab10
+Invoking: MacOS X C++ Linker
+g++  -o "Lab10"  ./src/Functions.o ./src/Lab10.o ./src/Print.o   
+duplicate symbol 'PrintHeader(std::__1::basic_ostream<char, std::__1::char_traits<char> >&)' in:
+    ./src/Functions.o
+    ./src/Print.o
+ld: 1 duplicate symbol for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [Lab10] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+13:42:28 **** Incremental Build of configuration Debug for project Lab10 ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/Functions.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Functions.d" -MT"src/Functions.o" -o "src/Functions.o" "../src/Functions.cpp"
+Finished building: ../src/Functions.cpp
+ 
+Building target: Lab10
+Invoking: MacOS X C++ Linker
+g++  -o "Lab10"  ./src/Functions.o ./src/Lab10.o ./src/Print.o   
+Finished building target: Lab10
+ 

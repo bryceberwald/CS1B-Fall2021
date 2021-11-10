@@ -14,22 +14,22 @@
  *
  * ________________________________________________________________________
  *
- * Description goes here...
- *
- *
- *
+ * This program will allow the user to select from a menu of options. Each
+ * menu option allows for manipulations on a doubly linked list. The user
+ * has the ability to create a linked list from a text file with the text
+ * file being in that specific format. When all the nodes have been added
+ * into the doubly linked list, the program will redisplay the menu options
+ * for new manipulations to be done. Remember, only certain parts of the
+ * program will occur when the list is NOT empty, meaning there are still
+ * nodes in the linked list.
  * ________________________________________________________________________
  *
  *
  * INPUT:
- *
- *
- *
+ *	  menuOptionSelected - User will input a value for a menu option.
  *
  * OUTPUT:
- *
- *
- *
+ *	  PersonNode *head   - Passed to functions that output data to console.
  *
  **************************************************************************/
 
@@ -41,9 +41,10 @@ int main() {
 	// Initialize the linked list to empty.
 	head = NULL;
 
-	string inputFileName = "inputFile.txt";
-	int menuOptionSelected = UnSelected;
-	bool inSession = true;
+	string inputFileName = "inputFile.txt"; // String holds input file name.
+
+	int menuOptionSelected = UnSelected;    // INP/CALC - Users input used for menu selections.
+	bool inSession = true;                  // LCV      - Variable controls the length of program
 
 	// Call function to display class header to the console.
 	PrintHeader(cout);
@@ -60,7 +61,7 @@ int main() {
 				break;
 			case CreateList:
 				// Call function to create an ordered linked list.
-				head = CreateLinkedList(inputFileName, head);
+				head = CreateOrderedLinkedList(inputFileName, head);
 
 				// Call function to display menu options to the console.
 				PrintMenuOptions(menuOptionSelected);
@@ -102,7 +103,7 @@ int main() {
 				break;
 			default:
 				// Error checking users input.
-				cout << "\n**** The number " << menuOptionSelected << " is an invalid entry ****";
+				cout << "\n**** The number " << menuOptionSelected << " is an invalid entry     ****";
 				cout << "\n**** Please input a number between 0 and 6 ****\n";
 
 				// Call function to display menu options to the console.
@@ -110,7 +111,5 @@ int main() {
 				break;
 		}
 	}
-
-
 	return 0;
 }
