@@ -1,0 +1,20 @@
+*******************************************************
+* PROGRAMMED BY : Bryce Berwald
+* CLASS         : CS1B
+* SECTION       : MW: 7:30PM-10:00PM
+* LAB #11       : Introduction to Recursion - GCD
+*******************************************************
+
+Enter the first integer:   72
+Enter the second integer:  32
+
+Enter the first integer:   99
+Enter the second integer:  30
+
+Enter the first integer:   48
+Enter the second integer:  18
+
+Enter the first integer:   12
+Enter the second integer:  0
+
+Thank you for using my GCD calculator!
