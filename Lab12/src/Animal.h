@@ -20,8 +20,8 @@ using namespace std;
 class Animal
 {
     public:
-		//Animal();
-		//~Animal();
+		Animal();
+		~Animal();
 
 		void SetInitialValues(string aName, string aType, int aAge, float aValue);
 		void ChangeAge(int aAge);
