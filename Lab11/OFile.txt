@@ -14,3 +14,15 @@ The GCD of 48 & 18 is: 6
 The GCD of 12 & 0 is: 12
 
 Program has terminated! All results are displayed...
+*******************************************************
+* PROGRAMMED BY : Bryce Berwald
+* CLASS         : CS1B
+* SECTION       : MW: 7:30PM-10:00PM
+* LAB #11       : Introduction to Recursion - GCD
+*******************************************************
+*******************************************************
+* PROGRAMMED BY : Bryce Berwald
+* CLASS         : CS1B
+* SECTION       : MW: 7:30PM-10:00PM
+* LAB #11       : Introduction to Recursion - GCD
+*******************************************************
