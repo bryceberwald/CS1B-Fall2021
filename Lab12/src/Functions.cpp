@@ -45,7 +45,7 @@ void PrintHeader(ostream &output) {
 **************************************************************************/
 bool ValidateNumber (string menuOptionStr) {
 
-   bool isValid;
+   bool isValid;   // CALC - Determine's validity to be returned.
 
    for (int i = 0; i < menuOptionStr.length(); i++)
 	   if (isdigit(menuOptionStr[i]) == false){
@@ -59,8 +59,12 @@ bool ValidateNumber (string menuOptionStr) {
 
 
 /**************************************************************************
+* This function will display one of two menu options in our program. One
+* of the parameters will be a boolean which will be used to determine which
+* menu option to display. A boolean is used for this purpose since we have
+* only two menu options for selection.
 *
-*
+* 2 Arguments passed, 1 by reference, 1 by value -> RETURNS: Nothing
 **************************************************************************/
 void PrintMenuOptions(int &menuOption, bool init) {
 
@@ -69,7 +73,6 @@ void PrintMenuOptions(int &menuOption, bool init) {
 
 	if(init) {
 		do {
-
 			cout << "\nMENU OPTIONS: ";
 			cout << "\n1 - Initialize Animals";
 			cout << "\n2 - Change Age";
@@ -118,5 +121,4 @@ void PrintMenuOptions(int &menuOption, bool init) {
 	}
 
 }
-
 

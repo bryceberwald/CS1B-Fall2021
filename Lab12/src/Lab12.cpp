@@ -15,51 +15,65 @@
  *
  * ________________________________________________________________________
  *
- *
- * Description goes here...
- *
- *
- *
+ * This program will allow a user to select from some menu options. A couple
+ * different menu options will be used by this program. There will be an
+ * initial set of options that will get displayed for the user to either
+ * initialize the three animal objects for terminate the program. If the user
+ * initializes the animal objects, a new set a menu options will be provided.
+ * The user will have the ability to display the class object attributes and
+ * change a couple of the attribute values when decided to do so. At any time
+ * the user can exit the program by typing 0 as shown under menu options.
  * ________________________________________________________________________
  *
  * INPUT:
- *
- *
+ * 	 menuOptionSelected - User will enter a value to pick from the menu options.
+ *   Animal Fluffy      - User can change the age and value attributes in menu options.
+ *   Animal Maa         - User can change the age and value attributes in menu options.
+ *   Animal Babe        - User can change the age and value attributes in menu options.
+ *   newAge             - Used to change the age attribute from a input value.
+ *   newValue           - Used to change the value attribute from a input value.
+ *   changeOptionStr    - User will input which animal object they would like to make changes.
+ *   reInitialize       - User will input a char type to determine whether or not to reinitialize animal objects.
  *
  * OUTPUT:
- *
- *
+ *   Animal Fluffy      - Animal object attributes will be displayed to console under certain menu options.
+ *   Animal Maa         - Animal object attributes will be displayed to console under certain menu options.
+ *   Animal Babe        - Animal object attributes will be displayed to console under certain menu options.
+ *   newAge             - Variable will get displayed to console as needed.
+ *   newValue           - Variable will get displayed to console as needed.
+ *   reInitialize       - Variable will get displayed to console as needed.
  *
  **************************************************************************/
 
 int main() {
 
-	Animal Fluffy, Maa, Babe;
-
 	// Call function to print class header to the console.
 	PrintHeader(cout);
 
-	int menuOptionSelected = Unselected;
+	Animal Fluffy;              // INP/OUT  - Instance of animal class to be used by the program.
+	Animal Maa;                 // INP/OUT  - Instance of animal class to be used by the program.
+	Animal Babe;                // INP/OUT  - Instance of animal class to be used by the program.
 
-	bool isInitialized = false;
+	int menuOptionSelected;     // INPUT    - User will enter a menu option to be executed in the program.
+	int changeOptionInt;        // LCV/CALC - Used to boundary check, string converted to integer when needed.
+	int newAge;                 // INP/OUT  - User can change age variable. Variable also gets displayed via console.
 
-	bool inSession = true;
+	float newValue;             // INP/OUT  - User can change value variable. Variable also gets displayed via console.
 
-	string currentName = "";
+	bool isInitialized;         // CALC     - Determine's the menu option displayed to the console.
+	bool reinitializationValid; // LCV      - Used to loop until boundary expectations are met.
+	bool inSession;             // LCV      - Used the duration of the program. False will terminate the program.
+	bool isNumber;              // CALC     - Used to check if input value is a legitimate number.
 
-	char reInitialize = 'N';
+	string changeOptionStr;     // INP/CALC - User inputs a string value thats converted to an integer when user types a number.
 
-	int changeOptionInt;
+	char reInitialize;          // INP/OUT  - Used to ensure that the user wants to reinitialize animal objects.
 
-	string changeOptionStr;
-
-	bool isNumber;
-
-	int newAge;
-
-	float newValue;
-
-	bool reinitializationValid;
+	// Setting initial values for variables.
+	isInitialized = false;
+	inSession = true;
+	reInitialize = 'N';
+	menuOptionSelected = Unselected;
 
 	while(inSession){
 

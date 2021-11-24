@@ -18,6 +18,7 @@
 
 using namespace std;
 
+// Used for the menu options in main.
 enum {
 	Exit,                // 0
 	InitializeAnimals,   // 1
@@ -40,15 +41,20 @@ enum {
 void PrintHeader(ostream &output);
 
 /**********************************************************************************
+ * Function prototype for checking whether input is a valid number or not. This
+ * function will take a string as a parameter and returns a boolean.
  *
+ * 1 Argument passed by value -> RETURNS: Boolean
  *********************************************************************************/
 bool ValidateNumber (string menuOptionStr);
 
 /**********************************************************************************
+ * Function prototype for displaying the menu options to the console. The function
+ * takes in a couple parameters since there are multiple menu options to be
+ * displayed by this function.
  *
+ * 2 Arguments passed, 1 by reference, 1 by value -> RETURNS: Nothing
  *********************************************************************************/
 void PrintMenuOptions(int &menuOption, bool init);
-
-
 
 #endif /* FUNCTIONS_H_ */

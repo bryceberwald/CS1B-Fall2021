@@ -1,31 +1,6 @@
-19:01:31 **** Incremental Build of configuration Debug for project Lab12 ****
+20:32:20 **** Incremental Build of configuration Debug for project Lab12 ****
 make all 
-Building target: Lab12
-Invoking: MacOS X C++ Linker
-g++  -o "Lab12"  ./src/Animal.o ./src/Functions.o ./src/Lab12.o   
-Undefined symbols for architecture x86_64:
-  "Animal::Animal()", referenced from:
-      _main in Lab12.o
-  "Animal::~Animal()", referenced from:
-      _main in Lab12.o
-ld: symbol(s) not found for architecture x86_64
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
-make: *** [Lab12] Error 1
-"make all" terminated with exit code 2. Build might be incomplete.
-19:01:34 **** Incremental Build of configuration Debug for project Lab12 ****
+make: Nothing to be done for `all'.
+20:32:21 **** Incremental Build of configuration Debug for project Lab12 ****
 make all 
-Building file: ../src/Animal.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Animal.d" -MT"src/Animal.o" -o "src/Animal.o" "../src/Animal.cpp"
-Finished building: ../src/Animal.cpp
- 
-Building file: ../src/Lab12.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Lab12.d" -MT"src/Lab12.o" -o "src/Lab12.o" "../src/Lab12.cpp"
-Finished building: ../src/Lab12.cpp
- 
-Building target: Lab12
-Invoking: MacOS X C++ Linker
-g++  -o "Lab12"  ./src/Animal.o ./src/Functions.o ./src/Lab12.o   
-Finished building target: Lab12
- 
+make: Nothing to be done for `all'.
