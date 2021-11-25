@@ -1,15 +1,6 @@
-18:42:47 **** Incremental Build of configuration Debug for project Assignment4 ****
+20:07:44 **** Incremental Build of configuration Debug for project Assignment4 ****
 make all 
-Building file: ../src/Assignment4.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Assignment4.d" -MT"src/Assignment4.o" -o "src/Assignment4.o" "../src/Assignment4.cpp"
-Finished building: ../src/Assignment4.cpp
- 
-Building target: Assignment4
-Invoking: MacOS X C++ Linker
-g++  -o "Assignment4"  ./src/Assignment4.o ./src/Functions.o   
-Finished building target: Assignment4
- 
-18:42:49 **** Incremental Build of configuration Debug for project Assignment4 ****
+make: Nothing to be done for `all'.
+20:07:46 **** Incremental Build of configuration Debug for project Assignment4 ****
 make all 
 make: Nothing to be done for `all'.

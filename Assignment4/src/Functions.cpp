@@ -32,7 +32,7 @@ void PrintHeader(ostream &output) {
 	output << "\n* " << setw(14) << "SECTION" << ": " << SECTION;
 	output << "\n* ASSIGNMENT #" << setw(2) << ASSIGNMENT_NUM << ": " << ASSIGNMENT_NAME;
 	output << "\n*******************************************************" << endl;
-	output << right << endl;
+	output << right;
 }
 
 
@@ -114,13 +114,6 @@ int CalculateFactorialRecursively(int number){
 	if (number == 0){
 		factorialNumber = 1;
 	} else {
-
-		// Display calculations being done to the console.
-	    if(number == 1){
-			cout << "1 = ";
-		} else {
-			cout << number << "x";
-		}
 
 		// Call factorial recursive function to return an integer.
 		factorialNumber = number * CalculateFactorialRecursively(decrementedNumber);

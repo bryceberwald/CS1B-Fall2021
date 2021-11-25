@@ -16,7 +16,11 @@
 #include <ostream>
 #include <sstream>
 #include <fstream>
+#include <cstdlib>
+#include <chrono>
+#include <ctime>
 using namespace std;
+using namespace std::chrono;
 
 // Created enum types for menu options.
 enum {

@@ -32,6 +32,10 @@
 
 int main() {
 
+	high_resolution_clock::time_point t1;
+	high_resolution_clock::time_point t2;
+	long long duration;
+
 	// Call function to display class header the console.
 	PrintHeader(cout);
 
@@ -48,6 +52,7 @@ int main() {
 	string comboStr;
 
 	int fibonacci;
+	int factorial;
 
 	// Assign variables initial values.
 	inSession = true;
@@ -65,13 +70,13 @@ int main() {
 				break;
 			case CalculateFactorial:
 				// Code for calculating & displaying factorial using recursive method.
-
 				do {
-
+					// Ask the user for a number.
 					cout << "\nEnter a number: ";
 					cin >> inputString;
 					cin.ignore(10000, '\n');
 
+					// Check if users input is a actual number.
 					isNumber = ValidateNumber(inputString);
 
 					if(!isNumber) {
@@ -82,20 +87,35 @@ int main() {
 
 				} while(!isNumber);
 
+				// Convert string input to integer.
 				inputInteger = atoi(inputString.c_str());
 
+				// Call function to calculate factorial recursively.
+				factorial = CalculateFactorialRecursively(inputInteger);
+
+				// Display calculations being done to the console.
+				cout << endl;
+				for(int i = inputInteger; i > 0; i--){
+					if(i == 1){
+						cout << "1 = ";
+					} else {
+						cout << i << "x";
+					}
+				}
+				cout << factorial;
 				cout << "\nThe Factorial of " << inputInteger << " is: " << CalculateFactorialRecursively(inputInteger) << endl;
 
 				break;
 			case CalculateFibonacci:
 				// Code for calculating & displaying fibonacci series using recursive method.
-
 				do {
 
+					// Ask user for a number.
 					cout << "\nEnter a number: ";
 					cin >> inputString;
 					cin.ignore(10000, '\n');
 
+					// Check if users input is a actual number.
 					isNumber = ValidateNumber(inputString);
 
 					if(!isNumber) {
@@ -106,6 +126,7 @@ int main() {
 
 				} while(!isNumber);
 
+				// Convert string input to an integer.
 				inputInteger = atoi(inputString.c_str());
 
 				// Output the final fibonacci series in ascending order.
@@ -119,9 +140,117 @@ int main() {
 				break;
 			case CompareFactorial:
 				// Code for comparing performance of factorial calculation using recursion & iteration.
+				do {
+
+					cout << "\nEnter a number: ";
+					cin >> inputString;
+					cin.ignore(10000, '\n');
+
+					isNumber = ValidateNumber(inputString);
+
+					if(!isNumber) {
+						cout << endl << right << setfill('*') << setw(7);
+						cout << " "  << "Please Enter a NUMBER.";
+						cout << left << setw(7) << " " << setfill(' ') << endl;
+					}
+
+				} while(!isNumber);
+
+				inputInteger = atoi(inputString.c_str());
+
+				cout << "\nRecursive Implementation: \n";
+				t1 = high_resolution_clock::now();
+
+				// Call function using recursion.
+				factorial = CalculateFactorialRecursively(inputInteger);
+
+				for(int i = inputInteger; i > 0; i--){
+					if(i == 1){
+						cout << "1 = ";
+					} else {
+						cout << i << "x";
+					}
+				}
+				cout << factorial;
+				t2 = high_resolution_clock::now();
+				duration = duration_cast<microseconds>(t2 - t1).count();
+				cout << "\nIt took the program " << duration << " microseconds to execute.\n";
+
+				cout << "\nIterative Implementation: \n";
+				t1 = high_resolution_clock::now();
+
+				// Call factorial function using iteration.
+				factorial = CalculateFactorialIteratively(inputInteger);
+
+				for(int i = inputInteger; i > 0; i--){
+
+					if(i == 1){
+						cout << "1 = ";
+					} else {
+						cout << i << "x";
+					}
+				}
+				cout << factorial;
+				t2 = high_resolution_clock::now();
+				duration = duration_cast<microseconds>(t2 - t1).count();
+				cout << "\nIt took the program " << duration << " microseconds to execute.\n";
+
 				break;
 			case CompareFibonacci:
 				// Code for comparing performance of fibonacci calculation using recursion & iteration.
+				do {
+					cout << "\nEnter a number: ";
+					cin >> inputString;
+					cin.ignore(10000, '\n');
+
+					isNumber = ValidateNumber(inputString);
+
+					if(!isNumber) {
+						cout << endl << right << setfill('*') << setw(7);
+						cout << " "  << "Please Enter a NUMBER.";
+						cout << left << setw(7) << " " << setfill(' ') << endl;
+					}
+
+				} while(!isNumber);
+
+				inputInteger = atoi(inputString.c_str());
+
+				cout << "\nRecursive Implementation:";
+				t1 = high_resolution_clock::now();
+
+				// Call function using recursion.
+				fibonacci = CalculateFibonacciRecursively(inputInteger);
+
+				cout << "\nThe Final Fibonacci Series of " << inputInteger << " is: ";
+
+				// Output the final fibonacci series in ascending order.
+				for (int i = 0; i <= inputInteger; i++){
+					fibonacci = CalculateFibonacciRecursively(i);
+					cout << fibonacci << " ";
+				}
+
+				t2 = high_resolution_clock::now();
+				duration = duration_cast<microseconds>(t2 - t1).count();
+				cout << "\nIt took the program " << duration << " microseconds to execute.\n";
+
+				cout << "\nIterative Implementation:";
+				t1 = high_resolution_clock::now();
+
+				// Call function using iteration.
+				fibonacci = CalculateFibonacciIteratively(inputInteger);
+
+				cout << "\nThe Final Fibonacci Series of " << inputInteger << " is: ";
+
+				// Output the final fibonacci series in ascending order.
+				for (int i = 0; i <= inputInteger; i++){
+					fibonacci = CalculateFibonacciRecursively(i);
+					cout << fibonacci << " ";
+				}
+
+				t2 = high_resolution_clock::now();
+				duration = duration_cast<microseconds>(t2 - t1).count();
+				cout << "\nIt took the program " << duration << " microseconds to execute.\n";
+
 				break;
 			default:
 
