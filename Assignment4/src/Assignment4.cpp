@@ -14,49 +14,58 @@
  *
  * ____________________________________________________________________________
  *
- *
- * Description goes here...
- *
- *
- *
- *
+ * This program will allow a user to calculate the factorial and fibonacci
+ * series of a number from a few different menu option selections. The first two
+ * menu options will calculate the numbers using only recursive methods. The
+ * resulting value's will get displayed to the console as they are found. The
+ * last two menu options available for selection (option 3 or option 4) will
+ * calculate the resulting values using recursion and iteration with separate
+ * functions that will be used with a time comparison library to get the seconds
+ * measured of the time each function takes. 0 - to Exit at any time!!!
  * _____________________________________________________________________________
  *
  * INPUT:
+ *	 inputString        - Variable used to store users input value.
  *
  *
  * OUTPUT:
+ * 	 seconds            - Calculated & displayed after time comparisons are done.
+ * 	 comboStr           - Displayed to the console when error checking.
+ * 	 menuOptionSelected - Displayed when users input is a number & out of range.
+ * 	 fibonacci          - Displayed after calculations have been done.
+ * 	 factorial          - Displayed after calculations have been done.
  *
  *
  *******************************************************************************/
 
 int main() {
 
-	high_resolution_clock::time_point t1;
-	high_resolution_clock::time_point t2;
-	long long duration;
+	// Variable & Constant Declarations.
+
+	high_resolution_clock::time_point t1;    // CALC     - Starting time value used for calculations.
+	high_resolution_clock::time_point t2;    // CALC     - Ending time value used for calculations.
+
+	long long duration;                      // CALC     - Number of microseconds for execution.
+
+	float seconds = 0.0;                     // CALC/OUT - Number of seconds for execution, displayed to console as needed.
+
+	const float TIME_CONVERSION = 1000000.0; // CALC     - Used to convert microseconds into seconds.
+	const int NUMBER_OF_CALLS = 10000;       // CALC     - Used to iterate function calls for time comparisons.
+
+	bool inSession = true;                   // LCV      - Used to control the duration of the program.
+	bool isNumber;                           // CALC     - Used to determine if user's input is a actual number.
+
+	stringstream createString;               // CALC     - Used to create a string when error checking.
+	string inputString;                      // INP/CALC - User will input a value, which is used for number checking as well.
+	string comboStr;                         // CALC/OUT - Used to convert the string stream into a string for output.
+
+	int inputInteger;                        // CALC     - Used for user's input when the string value is verified to be a number.
+	int menuOptionSelected = UnSelected;     // CALC/OUT - Used to determine which menu option is being accessed, being displayed if needed.
+	int fibonacci;                           // CALC/OUT - Variable holds the factorial of a number to be displayed as needed.
+	int factorial;                           // CALC/OUT - Variable holds the fibonacci series of a number to be displayed as needed.
 
 	// Call function to display class header the console.
 	PrintHeader(cout);
-
-	// Variable & Constant Declarations.
-	bool inSession;
-	bool isNumber;
-
-	string inputString;
-	int inputInteger;
-
-	int menuOptionSelected;
-
-	stringstream createString;
-	string comboStr;
-
-	int fibonacci;
-	int factorial;
-
-	// Assign variables initial values.
-	inSession = true;
-	menuOptionSelected = UnSelected;
 
 	while(inSession){
 
@@ -161,39 +170,36 @@ int main() {
 				cout << "\nRecursive Implementation: \n";
 				t1 = high_resolution_clock::now();
 
-				// Call function using recursion.
-				factorial = CalculateFactorialRecursively(inputInteger);
-
-				for(int i = inputInteger; i > 0; i--){
-					if(i == 1){
-						cout << "1 = ";
-					} else {
-						cout << i << "x";
-					}
+				// Call factorial function using recursion.
+				for (int i = 0; i < NUMBER_OF_CALLS; i++){
+					factorial = CalculateFactorialRecursively(inputInteger);
 				}
 				cout << factorial;
 				t2 = high_resolution_clock::now();
+
 				duration = duration_cast<microseconds>(t2 - t1).count();
-				cout << "\nIt took the program " << duration << " microseconds to execute.\n";
+
+				// Convert microseconds into seconds.
+				seconds = duration / TIME_CONVERSION;
+
+				cout << "\nIt took the program " << seconds << " seconds to execute.\n";
 
 				cout << "\nIterative Implementation: \n";
 				t1 = high_resolution_clock::now();
 
 				// Call factorial function using iteration.
-				factorial = CalculateFactorialIteratively(inputInteger);
-
-				for(int i = inputInteger; i > 0; i--){
-
-					if(i == 1){
-						cout << "1 = ";
-					} else {
-						cout << i << "x";
-					}
+				for (int i = 0; i < NUMBER_OF_CALLS; i++){
+					factorial = CalculateFactorialIteratively(inputInteger);
 				}
 				cout << factorial;
 				t2 = high_resolution_clock::now();
+
 				duration = duration_cast<microseconds>(t2 - t1).count();
-				cout << "\nIt took the program " << duration << " microseconds to execute.\n";
+
+				// Convert microseconds into seconds.
+				seconds = duration / TIME_CONVERSION;
+
+				cout << "\nIt took the program " << seconds << " seconds to execute.\n";
 
 				break;
 			case CompareFibonacci:
@@ -219,37 +225,35 @@ int main() {
 				t1 = high_resolution_clock::now();
 
 				// Call function using recursion.
-				fibonacci = CalculateFibonacciRecursively(inputInteger);
-
-				cout << "\nThe Final Fibonacci Series of " << inputInteger << " is: ";
-
-				// Output the final fibonacci series in ascending order.
-				for (int i = 0; i <= inputInteger; i++){
-					fibonacci = CalculateFibonacciRecursively(i);
-					cout << fibonacci << " ";
+				for (int i = 0; i < NUMBER_OF_CALLS; i++){
+					fibonacci = CalculateFibonacciRecursively(inputInteger);
 				}
-
+				cout << "\nCalculating the time of Fibonacci Series using recursion!";
 				t2 = high_resolution_clock::now();
+
 				duration = duration_cast<microseconds>(t2 - t1).count();
-				cout << "\nIt took the program " << duration << " microseconds to execute.\n";
+
+				// Convert microseconds into seconds.
+				seconds = duration / TIME_CONVERSION;
+
+				cout << "\nIt took the program " << seconds << " seconds to execute.\n";
 
 				cout << "\nIterative Implementation:";
 				t1 = high_resolution_clock::now();
 
 				// Call function using iteration.
-				fibonacci = CalculateFibonacciIteratively(inputInteger);
-
-				cout << "\nThe Final Fibonacci Series of " << inputInteger << " is: ";
-
-				// Output the final fibonacci series in ascending order.
-				for (int i = 0; i <= inputInteger; i++){
-					fibonacci = CalculateFibonacciRecursively(i);
-					cout << fibonacci << " ";
+				for(int i = 0; i < NUMBER_OF_CALLS; i++){
+					fibonacci = CalculateFibonacciIteratively(inputInteger);
 				}
-
+				cout << "\nCalculating the time of Fibonacci Series using iteration!";
 				t2 = high_resolution_clock::now();
+
 				duration = duration_cast<microseconds>(t2 - t1).count();
-				cout << "\nIt took the program " << duration << " microseconds to execute.\n";
+
+				// Convert microseconds into seconds.
+				seconds = duration / TIME_CONVERSION;
+
+				cout << "\nIt took the program " << seconds << " seconds to execute.\n";
 
 				break;
 			default:
@@ -277,11 +281,4 @@ int main() {
 
 	return 0;
 }
-
-
-
-
-
-
-
 

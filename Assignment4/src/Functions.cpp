@@ -102,7 +102,12 @@ void PrintMenuOptions(int &menuOption) {
 
 
 /************************************************************************
+* This function will calculate the factorial of a number using recursion.
+* Two variables are initialized within the function. One for the factorial
+* resulting values calculations and another for the decremented number to
+* proceed into the recursive call of this function again.
 *
+* 1 Argument passed by value -> RETURNS: Integer
 ************************************************************************/
 int CalculateFactorialRecursively(int number){
 
@@ -126,7 +131,11 @@ int CalculateFactorialRecursively(int number){
 
 
 /************************************************************************
+* This function will calculate the factorial of a number using iteration.
+* This function initializes one variables for the resulting value to have
+* calculations done and to be returned.
 *
+* 1 Argument passed by value -> RETURNS: Integer
 ************************************************************************/
 int CalculateFactorialIteratively(int number){
 
@@ -149,7 +158,12 @@ int CalculateFactorialIteratively(int number){
 
 
 /************************************************************************
+* This function will calculate the fibonacci series of a number using
+* recursion. This function initializes one variable to get added to. This
+* function will continually get called within itself until a resulting
+* value is ready to be returned.
 *
+* 1 Argument passed by value -> RETURNS: Integer
 ************************************************************************/
 int CalculateFibonacciRecursively(int number){
 
@@ -171,7 +185,14 @@ int CalculateFibonacciRecursively(int number){
 
 
 /************************************************************************
+* This function will calculate the fibonacci series of a number using
+* iteration. This function initializes three variables to hold values
+* for all of the necessary requirements of a fibonacci series. One for
+* the current number and the other two for the two consecutive terms
+* before the current number. The values will be arranged until the result
+* has been found to be returned.
 *
+* 1 Argument passed by value -> RETURNS: Integer
 ************************************************************************/
 int CalculateFibonacciIteratively(int number){
 
