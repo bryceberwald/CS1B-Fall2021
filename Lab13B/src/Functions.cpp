@@ -1,6 +1,6 @@
 /**************************************************************************
  * AUTHOR         : BRYCE BERWALD
- * Lab #13	      : Array of Sheep - OOP
+ * Lab #13	      : Linked Lists of Sheep - OOP
  * CLASS          : CS1B
  * SECTION        : MW 7:30-10:00PM
  * DUE DATE       : 12/01/21 @ 11:59PM
@@ -21,7 +21,7 @@ void PrintHeader(ostream &output) {
 	const char CLASS[5] = "CS1B";
 	const char SECTION[25] = "MW: 7:30PM-10:00PM";
 	const int LAB_NUM = 13;
-	const char LAB_NAME[60] = "Array of Sheep - OOP";
+	const char LAB_NAME[60] = "Linked Lists of Sheep - OOP";
 
 	// Output the program header to output specified.
 	output << left;

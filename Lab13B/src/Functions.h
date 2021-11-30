@@ -1,6 +1,6 @@
 /**************************************************************************
  * AUTHOR         : BRYCE BERWALD
- * Lab #13	      : Array of Sheep - OOP
+ * Lab #13	      : Linked Lists of Sheep - OOP
  * CLASS          : CS1B
  * SECTION        : MW 7:30-10:00PM
  * DUE DATE       : 12/01/21 @ 11:59PM
@@ -59,5 +59,7 @@ bool ValidateNumber (string menuOptionStr);
 * 1 Argument passed by reference -> RETURNS: Nothing
 **********************************************************************************/
 void PrintMenuOptions(int &menuOption);
+
+
 
 #endif /* FUNCTIONS_H_ */

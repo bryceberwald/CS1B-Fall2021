@@ -1,6 +1,6 @@
 /**************************************************************************
  * AUTHOR         : BRYCE BERWALD
- * Lab #13	      : Array of Sheep - OOP
+ * Lab #13	      : Linked Lists of Sheep - OOP
  * CLASS          : CS1B
  * SECTION        : MW 7:30-10:00PM
  * DUE DATE       : 12/01/21 @ 11:59PM
@@ -13,6 +13,7 @@
  *************************************************************************/
 FarmList::FarmList(){
 
+	head = NULL;
 	sheepCount = 0;
 
 }
@@ -31,8 +32,22 @@ FarmList::~FarmList(){
  *************************************************************************/
 void FarmList::AddSheep(Sheep newSheep){
 
+	SheepNode *sheepPtr;
+	SheepNode *tail;
+
+	tail = head;
+
+	sheepPtr = new SheepNode;
+
 	string name;
 	int age;
+
+	// Find the tail
+	if (tail != NULL){
+		while(tail->next != NULL){
+			tail = tail->next;
+		}
+	}
 
 	cout << "\nSheep Name: ";
 	getline(cin, name);
@@ -55,16 +70,28 @@ void FarmList::AddSheep(Sheep newSheep){
 
 	newSheep.SetInitialValues(name, age);
 
-	if(sheepCount < AR_SIZE){
-		farmArray[sheepCount] = newSheep;
-		sheepCount++;
-		cout << "\nThe Sheep...";
-		cout << "\nSheep Name: " << name;
-		cout << "\nSheep Age: " << age;
-		cout << "\nHas been added!\n";
+	sheepPtr->currentSheep = newSheep;
+
+	if (tail == NULL) {
+		head = sheepPtr;
+		sheepPtr = NULL;
+	    delete sheepPtr;
+
 	} else {
-		cout << "\nThe Array is FULL.\n";
+		sheepPtr->next = NULL;
+		tail->next = sheepPtr;
+		tail = sheepPtr;
+
+		sheepPtr = NULL;
+	    delete sheepPtr;
 	}
+
+	cout << "\nThe Sheep...";
+	cout << "\nSheep Name: " << name;
+	cout << "\nSheep Age: " << age;
+	cout << "\nHas been added!\n";
+
+	sheepCount++;
 
 }
 
@@ -74,17 +101,25 @@ void FarmList::AddSheep(Sheep newSheep){
  *************************************************************************/
 void FarmList::ClearList(){
 
-	for (int i = 0; i < sheepCount; i++){
-		farmArray[i].SetInitialValues("", 0);
-	}
+	SheepNode *sheepPtr;
+	SheepNode *nextPtr;
 
-	if(sheepCount > 0){
-		cout << "\nThe list has been cleared!\n";
-	} else {
+	sheepPtr = head;
+
+	if (head == NULL) {
 		cout << "\nThe list is empty!\n";
+	} else {
+		cout << "\nThe list has been cleared.\n";
+		while (sheepPtr != NULL) {
+			nextPtr = sheepPtr->next;
+			sheepPtr = NULL;
+			sheepPtr = nextPtr;
+
+		}
+		head = NULL;
+		sheepCount = 0;
 	}
 
-	sheepCount = 0;
 }
 
 
@@ -93,27 +128,25 @@ void FarmList::ClearList(){
  *************************************************************************/
 Sheep FarmList::FindSheep(string sheepName) const {
 
-	Sheep newSheep;
-	string name;
-	int age;
+		SheepNode *sheepPtr;
+		sheepPtr = head;
 
-	bool found = false;
-	int index = 0;
+		Sheep foundSheep;
 
-	while(index < sheepCount && !found){
+		bool found = false;
 
-		if(farmArray[index].GetName() == sheepName){
-			farmArray[index].GetValues(name, age);
-			newSheep.SetInitialValues(name, age);
-			found = true;
-		} else {
-			found = false;
+		// Loop until the end of list and also while hasn't been found.
+		while(sheepPtr != NULL && !found){
+
+			if(sheepPtr->currentSheep.GetName() == sheepName) {
+				found = true;
+				foundSheep = sheepPtr->currentSheep;
+			} else {
+				sheepPtr = sheepPtr->next;
+				found = false;
+			}
 		}
-
-		index++;
-	}
-
-	return newSheep;
+	return foundSheep;
 }
 
 
@@ -121,7 +154,16 @@ Sheep FarmList::FindSheep(string sheepName) const {
  *
  *************************************************************************/
 Sheep FarmList::GetFirstSheep() const {
-	return farmArray[0];
+	SheepNode *sheepPtr;
+
+	sheepPtr = head;
+
+	if (sheepPtr != NULL) {
+		return sheepPtr->currentSheep;
+	} else {
+		cout << "\nNobody is in the front - the list is empty!\n";
+		return sheepPtr->currentSheep;
+	}
 }
 
 
@@ -138,8 +180,10 @@ int FarmList::TotalSheep() const {
  *************************************************************************/
 void FarmList::DisplaySheepTable() const {
 
-	Sheep showSheep;
+	SheepNode *sheepPtr;
+	sheepPtr = head;
 
+	Sheep showSheep;
 	string name;
 	int age;
 
@@ -151,9 +195,11 @@ void FarmList::DisplaySheepTable() const {
 
 		cout << endl << left;
 
-		for (int i = 0; i < sheepCount; i++){
-			farmArray[i].GetValues(name, age);
+		while(sheepPtr != NULL){
+			sheepPtr->currentSheep.GetValues(name, age);
 			cout << setw(16) << name << age << endl;
+
+			sheepPtr = sheepPtr->next;
 		}
 
 		if(sheepCount == 1){

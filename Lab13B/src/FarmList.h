@@ -1,14 +1,15 @@
 /**************************************************************************
  * AUTHOR         : BRYCE BERWALD
- * Lab #13	      : Array of Sheep - OOP
+ * Lab #13	      : Linked Lists of Sheep - OOP
  * CLASS          : CS1B
  * SECTION        : MW 7:30-10:00PM
  * DUE DATE       : 12/01/21 @ 11:59PM
  *************************************************************************/
 
-#ifndef SHEEP_H_
-#define SHEEP_H_
+#ifndef FARMLIST_H_
+#define FARMLIST_H_
 
+#include "Sheep.h"
 #include <iostream> // For input & output
 #include <iomanip>  // For manipulating the input & output
 #include <string>   // For strings to be used
@@ -16,10 +17,10 @@
 using namespace std;
 
 /**************************************************************************
- * Sheep Class
+ * FarmList Class
  *
  *************************************************************************/
-class Sheep
+class FarmList
 {
     public:
 		/******************************************************
@@ -27,20 +28,14 @@ class Sheep
 		*******************************************************/
 
 		/******************************************************
-		* Sheep ();                                          *
-		* Constructor; Initialize sheep attributes           *
-		* Parameters: none                                    *
-		* Return: none          						      *
+		*        						      *
 		*******************************************************/
-		Sheep();
+		FarmList();
 
 		/******************************************************
-		* ~Sheep ();                                         *
-		* Destructor; Does not perform any specific function  *
-		* Parameters: none                                    *
-		* Return: none          						      *
+		*         						      *
 		*******************************************************/
-		~Sheep();
+		~FarmList();
 
 
 		/******************************************************
@@ -51,7 +46,12 @@ class Sheep
 		/******************************************************
 		*
 		*******************************************************/
-		void SetInitialValues(string sheepName, int sheepAge);
+		void AddSheep(Sheep newSheep);
+
+		/******************************************************
+		*
+		*******************************************************/
+		void ClearList();
 
 
 		/******************************************************
@@ -62,17 +62,35 @@ class Sheep
 		/******************************************************
 		*
 		*******************************************************/
-		void GetValues(string &sheepName, int &sheepAge) const;
+		Sheep FindSheep(string sheepName) const;
 
 		/******************************************************
 		*
 		*******************************************************/
-		string GetName() const;
+		Sheep GetFirstSheep() const;
+
+		/******************************************************
+		*
+		*******************************************************/
+		int TotalSheep() const;
+
+		/******************************************************
+		*
+		*******************************************************/
+		void DisplaySheepTable() const;
 
     private:
-		string name;
-		int age;
+		struct SheepNode {
+			Sheep currentSheep;
+			SheepNode *next;
+		};
+
+		SheepNode *head;
+
+		//Sheep farmArray[AR_SIZE];
+		int sheepCount;
 };
 
 
-#endif /* SHEEP_H_ */
+
+#endif /* FARMLIST_H_ */

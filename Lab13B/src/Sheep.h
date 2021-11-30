@@ -1,6 +1,6 @@
 /**************************************************************************
  * AUTHOR         : BRYCE BERWALD
- * Lab #13	      : Array of Sheep - OOP
+ * Lab #13	      : Linked Lists of Sheep - OOP
  * CLASS          : CS1B
  * SECTION        : MW 7:30-10:00PM
  * DUE DATE       : 12/01/21 @ 11:59PM
@@ -73,6 +73,7 @@ class Sheep
 		string name;
 		int age;
 };
+
 
 
 #endif /* SHEEP_H_ */
