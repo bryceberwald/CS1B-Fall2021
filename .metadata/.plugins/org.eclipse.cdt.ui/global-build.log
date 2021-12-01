@@ -1,6 +1,15 @@
-10:43:15 **** Incremental Build of configuration Debug for project Lab13 ****
+11:29:29 **** Incremental Build of configuration Debug for project Lab13B ****
 make all 
-make: Nothing to be done for `all'.
-10:43:16 **** Incremental Build of configuration Debug for project Lab13 ****
+Building file: ../src/Lab13B.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Lab13B.d" -MT"src/Lab13B.o" -o "src/Lab13B.o" "../src/Lab13B.cpp"
+Finished building: ../src/Lab13B.cpp
+ 
+Building target: Lab13B
+Invoking: MacOS X C++ Linker
+g++  -o "Lab13B"  ./src/FarmList.o ./src/Functions.o ./src/Lab13B.o ./src/Sheep.o   
+Finished building target: Lab13B
+ 
+11:29:30 **** Incremental Build of configuration Debug for project Lab13B ****
 make all 
 make: Nothing to be done for `all'.

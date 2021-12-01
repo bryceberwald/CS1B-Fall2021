@@ -15,43 +15,51 @@
  *
  * ____________________________________________________________________________
  *
- *
- *
- *
- *
- *
- *
- *
+ * This program will allow a user to select from a range of menu options. The
+ * user will be able to add a sheep class object into a list contained within
+ * the FarmList class object which was created to hold all objects concerning
+ * a farm, but for this lab purpose, only a list of sheep objects will be used.
+ * The sheep objects will be appended to the end of a list. Different
+ * manipulations may be done to the list through the menu options. At any time
+ * enter 0 to terminate the program.
  * _____________________________________________________________________________
  *
  * INPUT:
- *
- *
+ *   menuOptionSelected - User will input a value to choose a menu option.
+ *	 newSheep           - User will input values for a new sheep to be added.
+ *	 Farm               - User's input values will be stored in the Farm class.
  *
  *
  * OUTPUT:
- *
- *
+ *   menuOptionSelected - User's menu option selections displayed to console as needed.
+ *   newSheep           - User's chosen sheep values will be displayed to console as needed.
+ *   sheep              - Sheep values will be displayed to console as needed.
+ *   sheepName          - Sheep values will be displayed to console as needed.
+ *   sheepAge           - Sheep values will be displayed to console as needed.
+ *   SizeOfList         - Variable will be returned and displayed as needed.
+ *   comboStr           - Variable gets displayed to console when input values are out of range.
  *
  *
  *******************************************************************************/
 
 int main() {
 
-	FarmList Farm;
-	Sheep newSheep;
-	Sheep sheep;
+	FarmList Farm;             // INP/OUT/CALC - Instance of the FarmList class is created for the program to use.
+	Sheep newSheep;            // INP/OUT      - A sheep object is created for whenever new sheep are added to the list.
+	Sheep sheep;               // OUT/CALC     - A sheep object is created for returning values from a sheep object itself.
 
-	string sheepName;
-	int sheepAge;
-	int SizeOfList;
+	string sheepName;          // OUT/CALC     - Value's get returned by reference and displayed to the console.
+	int sheepAge;              // OUT/CALC     - Value's get returned by reference and displayed to the console.
+	int SizeOfList;            // OUT/CALC     - Value's get returned by reference and displayed to the console.
 
-	stringstream createString;
-	string comboStr;
+	stringstream createString; // CALC         - This variable is used to create a string for error checking input.
+	string comboStr;           // OUT          - This variable is assigned the created string value to be displayed.
 
-	bool inSession = true;
+	bool inSession = true;     // LCV          - Used to determine the duration of the program.
 
-	int menuOptionSelected = UnSelected;
+	int menuOptionSelected;    // INP/OUT      - User selects menu options will this variable.
+
+	menuOptionSelected = UnSelected;
 
 	// Call function to print class header to the console.
 	PrintHeader(cout);

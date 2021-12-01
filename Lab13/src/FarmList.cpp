@@ -9,7 +9,10 @@
 #include "FarmList.h"
 
 /**************************************************************************
+ * This function will initialize our private sheep counter attribute to the
+ * value of zero since no sheep have been added to our list yet.
  *
+ * No Arguments -> RETURNS: Nothing
  *************************************************************************/
 FarmList::FarmList(){
 
@@ -19,7 +22,10 @@ FarmList::FarmList(){
 
 
 /**************************************************************************
+ * This function is for the destructor, for this assignment we will not be
+ * adding anything to it. Leaving this as a template basis.
  *
+ * No Arguments -> RETURNS: Nothing
  *************************************************************************/
 FarmList::~FarmList(){
 
@@ -27,7 +33,11 @@ FarmList::~FarmList(){
 
 
 /**************************************************************************
+ * This is the function prototype for adding a sheep to the end of a list.
+ * We will gather input values for a sheep object from the user which in
+ * turn will be appended to the list.
  *
+ * 1 Argument passed by value -> RETURNS: Nothing
  *************************************************************************/
 void FarmList::AddSheep(Sheep newSheep){
 
@@ -70,7 +80,10 @@ void FarmList::AddSheep(Sheep newSheep){
 
 
 /**************************************************************************
+ * This function will clear the entire list contents. If the list contents
+ * have already been cleared, a message concerning that will be displayed.
  *
+ * No Arguments -> RETURNS: Nothing
  *************************************************************************/
 void FarmList::ClearList(){
 
@@ -89,7 +102,11 @@ void FarmList::ClearList(){
 
 
 /**************************************************************************
+ * This function will find a sheep object by its name in the list and
+ * return the sheep when found. If no sheep was found, an empty sheep will
+ * be returned for the calling function to know that, no sheep was found.
  *
+ * 1 Argument passed by value -> RETURNS: Sheep
  *************************************************************************/
 Sheep FarmList::FindSheep(string sheepName) const {
 
@@ -118,7 +135,10 @@ Sheep FarmList::FindSheep(string sheepName) const {
 
 
 /**************************************************************************
+ * This function will get the first sheep from the list to be returned to
+ * the calling function.
  *
+ * No Arguments -> RETURNS: Sheep
  *************************************************************************/
 Sheep FarmList::GetFirstSheep() const {
 	return farmArray[0];
@@ -126,7 +146,10 @@ Sheep FarmList::GetFirstSheep() const {
 
 
 /**************************************************************************
+ * This function will get the total number of sheep from the farm list
+ * class attribute to be returned to the calling function.
  *
+ * No Arguments -> RETURNS: Integer
  *************************************************************************/
 int FarmList::TotalSheep() const {
 	return sheepCount;
@@ -134,7 +157,11 @@ int FarmList::TotalSheep() const {
 
 
 /**************************************************************************
+ * This function will display the entire list contents to the console in
+ * the format specified in class. If no sheep are currently held in the list,
+ * a message concerning that will be displayed.
  *
+ * No Arguments -> RETURNS: Nothing
  *************************************************************************/
 void FarmList::DisplaySheepTable() const {
 

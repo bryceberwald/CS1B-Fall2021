@@ -17,7 +17,9 @@ using namespace std;
 
 /**************************************************************************
  * Sheep Class
- *
+ * This is the class object that will hold the properties containing sheep.
+ * Using the constructor, destructor, 1 mutator method, and a couple
+ * accessor methods, with 2 private attributes.
  *************************************************************************/
 class Sheep
 {
@@ -27,15 +29,15 @@ class Sheep
 		*******************************************************/
 
 		/******************************************************
-		* Sheep ();                                          *
-		* Constructor; Initialize sheep attributes           *
+		* Sheep ();                                           *
+		* Constructor; Initialize sheep attributes            *
 		* Parameters: none                                    *
 		* Return: none          						      *
 		*******************************************************/
 		Sheep();
 
 		/******************************************************
-		* ~Sheep ();                                         *
+		* ~Sheep ();                                          *
 		* Destructor; Does not perform any specific function  *
 		* Parameters: none                                    *
 		* Return: none          						      *
@@ -49,7 +51,10 @@ class Sheep
 
 
 		/******************************************************
+		* Function prototype for setting the initial values of
+		* a sheep object.
 		*
+		* 2 Arguments passed by value -> RETURNS: Nothing
 		*******************************************************/
 		void SetInitialValues(string sheepName, int sheepAge);
 
@@ -60,18 +65,25 @@ class Sheep
 
 
 		/******************************************************
+		* Function prototype for getting the values of a sheep
+		* class object and returning the values by reference.
 		*
+		* 2 Arguments passed by reference -> RETURNS: Nothing
 		*******************************************************/
 		void GetValues(string &sheepName, int &sheepAge) const;
 
 		/******************************************************
+		* Function prototype for getting the private name
+		* attribute to be returned as a string to the called
+		* function.
 		*
+		* No Arguments passed -> RETURNS: String
 		*******************************************************/
 		string GetName() const;
 
     private:
-		string name;
-		int age;
+		string name;  //INP/OUT - User will add a sheep object, & displayed as necessary.
+		int age;      //INP/OUT - User will add a sheep object, & displayed as necessary.
 };
 
 
