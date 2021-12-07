@@ -1,6 +1,37 @@
-17:44:48 **** Incremental Build of configuration Debug for project Assignment-5 ****
+22:47:43 **** Incremental Build of configuration Debug for project Assignment-5 ****
 make all 
 make: Nothing to be done for `all'.
-17:44:50 **** Incremental Build of configuration Debug for project Assignment-5 ****
+22:47:46 **** Incremental Build of configuration Debug for project Assignment-5 ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/MovieList.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MovieList.d" -MT"src/MovieList.o" -o "src/MovieList.o" "../src/MovieList.cpp"
+Finished building: ../src/MovieList.cpp
+ 
+Building target: Assignment-5
+Invoking: MacOS X C++ Linker
+g++  -o "Assignment-5"  ./src/Assignment-5.o ./src/Functions.o ./src/MovieList.o ./src/StackList.o   
+Finished building target: Assignment-5
+ 
+22:52:26 **** Incremental Build of configuration Debug for project Assignment-5 ****
+make all 
+Building file: ../src/Assignment-5.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Assignment-5.d" -MT"src/Assignment-5.o" -o "src/Assignment-5.o" "../src/Assignment-5.cpp"
+Finished building: ../src/Assignment-5.cpp
+ 
+Building file: ../src/MovieList.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/MovieList.d" -MT"src/MovieList.o" -o "src/MovieList.o" "../src/MovieList.cpp"
+Finished building: ../src/MovieList.cpp
+ 
+Building file: ../src/StackList.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/StackList.d" -MT"src/StackList.o" -o "src/StackList.o" "../src/StackList.cpp"
+Finished building: ../src/StackList.cpp
+ 
+Building target: Assignment-5
+Invoking: MacOS X C++ Linker
+g++  -o "Assignment-5"  ./src/Assignment-5.o ./src/Functions.o ./src/MovieList.o ./src/StackList.o   
+Finished building target: Assignment-5
+ 

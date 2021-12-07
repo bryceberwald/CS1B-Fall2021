@@ -14,6 +14,8 @@
 #include <iomanip>  // For manipulating the input & output
 #include <string>   // For strings to be used
 #include <fstream>
+#include <sstream>
+#include <ostream>
 
 using namespace std;
 
@@ -43,11 +45,9 @@ class MovieList:public StackList
 		*******************************************************/
 		~MovieList();
 
-
 		/******************************************************
 		*****************     MUTATORS    *********************
 		*******************************************************/
-
 
 		/******************************************************
 		*
@@ -59,25 +59,26 @@ class MovieList:public StackList
 		*******************************************************/
 		void OutputList(string outputFileName);
 
-
     private:
 
 		/******************************************************
 		*****************     ACCESSORS    ********************
 		*******************************************************/
 
+		/******************************************************
+		*
+		*******************************************************/
+		string WordWrap (string plot) const;
 
 		/******************************************************
 		*
 		*******************************************************/
-		string WorpWarp(string plot) const;
+		string TruncatedTitle(string title) const;
 
 		/******************************************************
 		*
 		*******************************************************/
 		void PrintHeader(ostream &output) const;
-
-		StackList Stack; // Created Instance of the class StackList to be used.
 };
 
 #endif /* MOVIELIST_H_ */

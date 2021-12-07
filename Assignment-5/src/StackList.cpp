@@ -46,6 +46,7 @@ void StackList::Push(DVDNode newDVD){
 		dvdPtr->synopis = newDVD.synopis;
 
 		head = dvdPtr;
+		dvdPtr->next = NULL;
 
 	} else {
 
@@ -63,7 +64,7 @@ void StackList::Push(DVDNode newDVD){
 	    head = dvdPtr;
 
 	}
-    delete dvdPtr;
+
     stackCount++;
 }
 
@@ -83,8 +84,10 @@ DVDNode StackList::Pop(){
 	frontDVD.rating = head->rating;
 	frontDVD.synopis = head->synopis;
 
-	head = head->next;
-	stackCount--;
+	if(head != NULL){
+		head = head->next;
+		stackCount--;
+	}
 
 	return frontDVD;
 }
@@ -127,9 +130,4 @@ DVDNode StackList::Peek() const {
 int StackList::Size() const {
 	return stackCount;
 }
-
-
-
-
-
 

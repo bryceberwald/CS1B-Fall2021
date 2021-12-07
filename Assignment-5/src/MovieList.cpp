@@ -52,14 +52,9 @@ void MovieList::CreateList(string inputFileName){
 
 			inFile.ignore(10000, '\n');
 
-			Stack.Push(dvd);
-
+			Push(dvd);
 		}
 	}
-
-	// Output size of linked list for testing purposes.
-	cout << Stack.Size();
-
 }
 
 
@@ -68,29 +63,76 @@ void MovieList::CreateList(string inputFileName){
  *************************************************************************/
 void MovieList::OutputList(string outputFileName){
 
-	DVDNode peekDVD;
 	DVDNode poppedDVD;
 
-	for(int i = 0; i < Stack.Size(); i++){
-		peekDVD = Stack.Peek();
+	ofstream oFile;
+	oFile.open(outputFileName, ios::app);
 
-		cout << peekDVD.title << peekDVD.leadActor << peekDVD.supportingActor << peekDVD.genre << peekDVD.alternativeGenre
-		     << peekDVD.year << peekDVD.rating << peekDVD.synopis;
+	PrintHeader(oFile);
 
-		poppedDVD = Stack.Pop();
+	while (head != NULL){
+		poppedDVD = Pop();
 
+		oFile << left;
+		oFile << setfill('*') << setw(75) << "*" << setfill(' ') << endl;
+		oFile << "Movie #: " << setw(9) << 20-Size() << "Title: " << TruncatedTitle(poppedDVD.title) << endl;
+		oFile << setfill('-') << setw(75) << "-" << setfill(' ') << endl;
+		oFile << "Year: " << setw(12) << poppedDVD.year << "Rating: " << poppedDVD.rating << endl;
+		oFile << setfill('-') << setw(75) << "-" << setfill(' ') << endl;
+		oFile << setw(18) << "Leading Actor: " << setw(30) << poppedDVD.leadActor << "Genre 1: " << poppedDVD.genre << endl;
+		oFile << setw(16) << "Supporting Actor: " << setw(30) << poppedDVD.leadActor << "Genre 2: " << poppedDVD.alternativeGenre << endl;
+		oFile << setfill('-') << setw(75) << "-" << setfill(' ') << endl;
+		oFile << "PLOT: " << endl;
+		oFile << WordWrap(poppedDVD.synopis) << endl;
+		oFile << setfill('*') << setw(75) << "*" << setfill(' ') << "\n\n\n\n";
 	}
-
 }
 
 
 /**************************************************************************
  *
  *************************************************************************/
-string MovieList::WorpWarp(string plot) const{
+string MovieList::WordWrap(string plot) const{
 
-	// Return a empty string for now...
-	return "";
+	const int MAX_CHARACTERS_PER_LINE = 75;
+
+	ostringstream newString;
+	string word = "";
+	string line = "";
+
+	for(int i = 0; i < plot.length(); i++){
+		if(plot[i] != ' '){
+			word = word + plot[i];
+		} else {
+			if(line.length() + word.length() > MAX_CHARACTERS_PER_LINE){
+				newString << line << endl;
+				line = "";
+			}
+			line = line + word + ' ';
+			word = "";
+		}
+	}
+	newString << line;
+
+	if(line.length() + word.length() > MAX_CHARACTERS_PER_LINE){
+		newString << endl;
+	}
+
+	newString << word;
+	return newString.str();
+}
+
+
+/**************************************************************************
+ *
+ *************************************************************************/
+string MovieList::TruncatedTitle(string title) const{
+	const int MAX_TITLE_CHARACTERS = 50;
+
+	if(title.length() > MAX_TITLE_CHARACTERS){
+		title = title.substr(0, MAX_TITLE_CHARACTERS - 3) + "...";
+	}
+	return title;
 }
 
 
@@ -98,6 +140,7 @@ string MovieList::WorpWarp(string plot) const{
  *
  *************************************************************************/
 void MovieList::PrintHeader(ostream &output) const {
+
 	// Declared variables for the program header to be used by this function.
 	const char PROGRAMMER[20] = "Bryce Berwald";
 	const char CLASS[5] = "CS1B";
@@ -114,4 +157,6 @@ void MovieList::PrintHeader(ostream &output) const {
 	output << "\n* ASSIGNMENT #" << setw(2) << ASSIGNMENT_NUM << ": " << ASSIGNMENT_NAME;
 	output << "\n*******************************************************" << endl;
 	output << right << endl;
+
 }
+
