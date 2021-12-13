@@ -9,10 +9,14 @@
 #include "StackList.h"
 
 /**************************************************************************
+ * Stack List class constructor will initiate the head to NULL and the
+ * stack count to a value of zero.
  *
+ * No Arguments -> RETURNS: Nothing
  *************************************************************************/
 StackList::StackList(){
 
+	// Initialize class attributes.
 	head = NULL;
 	stackCount = 0;
 
@@ -20,7 +24,10 @@ StackList::StackList(){
 
 
 /**************************************************************************
+ * Stack List class destructor is currently left as a template as it is not
+ * being used for this assignment.
  *
+ * No Arguments -> RETURNS: Nothing
  *************************************************************************/
 StackList::~StackList(){
 
@@ -28,11 +35,15 @@ StackList::~StackList(){
 
 
 /**************************************************************************
+ * Stack List class mutator method for pushing a new linked list item to
+ * the front of the linked list. The function will check if head is equal
+ * to NULL and append to the front of the linked list properly.
  *
+ * 1 Argument passed by value -> RETURNS: Nothing
  *************************************************************************/
 void StackList::Push(DVDNode newDVD){
 
-	DVDNode *dvdPtr;
+	DVDNode *dvdPtr;        // Pointer used to created a new DVD Node.
 	dvdPtr = new DVDNode;
 
 	if(head == NULL){
@@ -70,10 +81,14 @@ void StackList::Push(DVDNode newDVD){
 
 
 /**************************************************************************
+ * Stack List class mutator method for popping a linked list item from
+ * the front of the list. A  DVDNode will be assigned all of the values of
+ * the popped node for returning.
  *
+ * No Arguments -> RETURNS: DVDNode
  *************************************************************************/
 DVDNode StackList::Pop(){
-	DVDNode frontDVD;
+	DVDNode frontDVD;  // Pointer used to return popped DVD Node.
 
 	frontDVD.title = head->title;
 	frontDVD.leadActor = head->leadActor;
@@ -84,6 +99,7 @@ DVDNode StackList::Pop(){
 	frontDVD.rating = head->rating;
 	frontDVD.synopis = head->synopis;
 
+	// Check if head is equal to null.
 	if(head != NULL){
 		head = head->next;
 		stackCount--;
@@ -94,7 +110,11 @@ DVDNode StackList::Pop(){
 
 
 /**************************************************************************
+ * Stack List class accessor method for determining if the linked list is
+ * empty or not. The stack counter variable will be used to solve this issue,
+ * returning a boolean for an answer.
  *
+ * No Arguments -> RETURNS: Boolean
  *************************************************************************/
 bool StackList::IsEmpty() const {
 	if(stackCount == 0){
@@ -106,7 +126,11 @@ bool StackList::IsEmpty() const {
 
 
 /**************************************************************************
+ * Stack List class accessor method for peeking at the front most item of
+ * the linked list. A DVD Node will be created and assigned all the front
+ * items values to be returned.
  *
+ * No Arguments -> RETURNS: DVDNode
  *************************************************************************/
 DVDNode StackList::Peek() const {
 	DVDNode frontDVD;
@@ -125,7 +149,10 @@ DVDNode StackList::Peek() const {
 
 
 /**************************************************************************
+ * Stack List class accessor method for getting and returning the size
+ * of the linked list.
  *
+ * No Arguments -> RETURNS: Integer
  *************************************************************************/
 int StackList::Size() const {
 	return stackCount;

@@ -21,6 +21,10 @@ using namespace std;
 
 /**************************************************************************
  * MovieList Class
+ * This is the class definition for the Movie List class. This class will
+ * allow for creating a linked list which will output to a file in the format
+ * discussed in class. The class will use a couple accessor methods and
+ * mutator methods to accomplish the task at hand.
  *************************************************************************/
 class MovieList:public StackList
 {
@@ -50,12 +54,20 @@ class MovieList:public StackList
 		*******************************************************/
 
 		/******************************************************
+		* This is the Movie List class method prototype for
+		* creating a linked list from the input file passed as
+		* a parameter.
 		*
+		* 1 Argument passed by value -> RETURNS: Nothing
 		*******************************************************/
 		void CreateList(string inputFileName);
 
 		/******************************************************
+		* This is the Movie List class method prototype for
+		* outputting a linked list to the output file name passed
+		* as a parameter.
 		*
+		* 1 Argument passed by value -> RETURNS: Nothing
 		*******************************************************/
 		void OutputList(string outputFileName);
 
@@ -66,17 +78,28 @@ class MovieList:public StackList
 		*******************************************************/
 
 		/******************************************************
+		* This is the Movie List class method prototype for
+		* making sure the movie synopsis stays within a certain
+		* length.
 		*
+		* 1 Argument passed by value -> RETURNS: String
 		*******************************************************/
-		string WordWrap (string plot) const;
+		string WordWrap (string synopsis) const;
 
 		/******************************************************
+		* This is the Movie List class method prototype for
+		* making sure the title length doesn't run over creating
+		* an ugly user view.
 		*
+		* 1 Argument passed by value -> RETURNS: String
 		*******************************************************/
 		string TruncatedTitle(string title) const;
 
 		/******************************************************
+		* This is the Movie List class method prototype for
+		* printing the class header to the output file.
 		*
+		* 1 Argument passed by reference -> RETURNS: Nothing
 		*******************************************************/
 		void PrintHeader(ostream &output) const;
 };

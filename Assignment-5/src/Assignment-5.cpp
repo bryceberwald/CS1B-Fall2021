@@ -16,20 +16,23 @@
  *
  * ____________________________________________________________________________
  *
- *
- * Description goes here...
- *
- *
- *
- *
- *
+ * This program will allow the user to create a linked list from an input file
+ * and have the list output to a file in the format discussed in class. A few
+ * Movie List class methods will help with the formatting. The program will allow
+ * the user to enter the input file name and output file name (or d can be typed
+ * for default). Once the file names have been read, if the input file name matches
+ * the file name with the data, then the list will be created and will output to
+ * the file specified by the user. Two methods from the Movie List class will help
+ * accomplish this programs purpose.
  * _____________________________________________________________________________
  *
  * INPUT:
- *
+ *   string inputFileName  - User will be allowed to enter the input file name.
+ *   string outputFileName - User will be allowed to enter the output file name.
  *
  *
  * OUTPUT:
+ *   MovieList movie       - Movie Object will output to a file as specified.
  *
  *
  *
@@ -37,61 +40,23 @@
 
 int main() {
 
-	MovieList movie;
+	MovieList movie;             // MovieList instance created to interact with the class.
 
-	int menuOptionSelected = UnSelected;
-	bool inSession = true;
-
-	stringstream createString;
-	string comboStr;
-
-	string inputFileName = "";
-	string outputFileName = "";
+	string inputFileName = "";   // INPUT/CALC - Variable used to store the input file name.
+	string outputFileName = "";  // INPUT/CALC - Variable used to store the output file name.
 
 	// Call function to print class header to the console.
 	PrintHeader(cout);
 
-	// Call function to read file names from user.
+	// Call function to read file names from the user.
 	ReadFileNames(inputFileName, outputFileName);
 
-	while(inSession){
+	// Call movie list class method to create the linked list.
+	movie.CreateList(inputFileName);
 
-		// Call function to print menu options to the console.
-		PrintMenuOptions(menuOptionSelected);
+	// Call movie list class method to output the linked list to a file.
+	movie.OutputList(outputFileName);
 
-		switch(menuOptionSelected){
-			case Exit:
-				// Code for terminating the program.
-				inSession = false;
-				break;
-			case CreateList:
-				// Code for creating linked list.
-				movie.CreateList(inputFileName);
-				break;
-			case OutputList:
-				// Code for outputting the list to a file.
-				movie.OutputList(outputFileName);
-				break;
-			default:
-				// Create a string for the invalid number entry.
-				createString << "The number " << menuOptionSelected << " is an invalid entry.";
-				comboStr = createString.str();
-
-				// Error Checking!!!
-				cout << endl << left << setw(7);
-				cout << "****"  << setw(38) << comboStr;
-				cout << right << setw(7) << "****";
-
-				cout << endl << left << setw(7);
-				cout << "****"  << "Please choose a number between 0 and 2";
-				cout << right << setw(7) << "****" << endl;
-
-				// Reset string and stringstream variables to empty strings.
-				comboStr = "";
-				createString.str("");
-				break;
-		}
-	}
 	return 0;
 }
 
